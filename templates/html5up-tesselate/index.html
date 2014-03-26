@@ -15,6 +15,7 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+        <script src="js/jquery.transit.min.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -28,10 +29,10 @@
 		<!-- Header -->
 			<section id="header" class="dark">
 				<header>
-					<h1>You are 2<sup>5</sup> now!</h1>
+					<h1>You are <span class="age-two">2<sup>5</sup></span> now!</h1>
 				</header>
 				<footer>
-					<a href="#first"  class="button scrolly">Start celebrating</a>
+					<a id="btn-start" href="#first" class="button scrolly">Start celebrating <span class="fa fa-heart-o fa-heart-o-start"></span></a>
 				</footer>
 			</section>
 
@@ -40,8 +41,10 @@
 				<header>
 					<div class="container">
 						<h2>As you might have already guessed...</h2>
-						<p>Gravida dis placerat lectus ante vel nunc euismod eget ornare varius gravida euismod lorem ipsum dolor sit amet consequat<br />
-						feugiat. Gravida dis placerat lectus ante vel nunc euismod eget ornare varius gravida euismod lorem ipsum dolor sit amet.</p>
+						<p>This is your new home. Digital home. Since it's 2<sup>5</sup>th birthday, it's a very round number for a programmer.
+                            Actually, you have only few birthdays that are like that, 2<sup>1</sup>, 2<sup>2</sup>, 2<sup>3</sup>, 2<sup>4</sup>, 2<sup>5</sup>, 2<sup>6</sup> and hopefully 2<sup>6</sup> =)
+                            Next one is in 32 years from now, so this day is very, VERY special.
+                        </p>
 					</div>
 				</header>
 				<div class="content dark style1 featured">
@@ -201,7 +204,7 @@
 			</section>
 
 		<!-- Basic Elements -->
-		<!--
+
 			<section class="main">
 				<header>
 					<div class="container">
@@ -370,14 +373,14 @@
 					</div>
 				</div>
 			</section>
-		-->
+
 
 		<!-- Fourth -->
 			<section id="fourth" class="main">
 				<header>
 					<div class="container">
 						<h2>The End</h2>
-						<a href="#header" class="dark button scrolly">Or just a beginning?</a>
+						<a href="#header" class="alt button scrolly">Or just the beginning?</a>
 					</div>
 				</header>
 			</section>
