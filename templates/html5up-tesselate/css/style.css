@@ -1346,3 +1346,9 @@
     font-size: 0.8em;
     color: rgb(241, 167, 163);
 }
+
+.main-link {
+    font-size: 30px;
+    color: #0074D9;
+    margin-top: 20px;
+}
