@@ -191,11 +191,10 @@ customStuff = function() {
 
         if (toggle) {
             toggle = false;
-            $img.transition({scale: 12.0});
+            $img.transition({width: '100%', height: 'auto'});
         } else {
             toggle = true;
-            $img.transition({scale: 1.0});
-            //$img.css('position', 'relative');
+            $img.transition({width: '20px', height: 'auto'});
         }
     });
 };
