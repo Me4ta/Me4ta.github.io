@@ -646,6 +646,10 @@
 					background: rgba(255,255,255,0.25);
 				}
 
+            .button.no-border {
+                box-shadow: none;
+            }
+
 			.dark .button.alt
 			{
 				background: none;
@@ -1172,7 +1176,7 @@
 	{
 		position: relative;
 		margin: 0;
-		background: url('../images/photos/005.jpg');
+		background: url('../images/photos/front.jpg');
 		background-size: cover;
 		background-position: center center;
 		padding: 14em 0 14em 0;
@@ -1355,8 +1359,8 @@
 .fa-icon-o-start
 {
     margin-left: 5px;
-    font-size: 0.8em;
-    color: rgb(241, 167, 163);
+    font-size: .8em;
+    color: rgb(255, 212, 210);
 }
 
 .main-link {
