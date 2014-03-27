@@ -1305,6 +1305,13 @@
 							linear-gradient(45deg, #5f796b, #3a4e59, #2f394e);
 			}
 
+            .main > .content.style5 {
+                background: url('images/bgtr.svg') top right no-repeat,
+                            url('images/bgbl.svg') bottom left no-repeat,
+                            url('images/overlay.png'),
+                            linear-gradient(45deg, #202744, #3C6277, #202744)
+            }
+
 			.main > .content.style4
 			{
 				padding-top: 0;
@@ -1370,7 +1377,7 @@
 }
 
 .header {
-    height: 1000px;
+    height: 1100px;
 }
 
 .no-overlay:after{
@@ -1402,4 +1409,17 @@
 .note {
     display: block;
     font-size: 0.7em;
+}
+
+.main .header-amazing
+{
+    position: relative;
+    margin: 0;
+    background: url('../images/photos/napa-7.jpg');
+    background-size: cover;
+    background-position: center center;
+    padding: 14em 0 14em 0;
+    text-align: center;
+    color: #fff;
+    height: 1200px;
 }
