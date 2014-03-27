@@ -196,4 +196,37 @@ customStuff = function() {
             $img.transition({width: '20px', height: 'auto'});
         }
     });
+
+    var prevNumber;
+    $('#btn-maybe').click(function() {
+
+        var randomNumber =  Math.floor((Math.random()*10)+1);
+
+        while (prevNumber === randomNumber) {
+            randomNumber =  Math.floor((Math.random()*10)+1);
+        }
+
+        prevNumber = randomNumber;
+
+        if (randomNumber >= 9) {
+            window.location = 'https://www.flickr.com/photos/51047150@N06/sets/72157643018177133/'
+        }
+        else {
+
+            var texts = [
+                    'Click again?',
+                    'No luck, ha?',
+                    'It\'s "Maybe" baby',
+                    'Try again',
+                    'Click harder!',
+                    'But seriously, will it redirect me?',
+                    'Give up!',
+                    'Okay, keep clicking =)',
+                    'It will happen, I promise',
+                    'Maybe'
+                ];
+
+            $(this).text(texts[randomNumber]);
+        }
+    });
 };
