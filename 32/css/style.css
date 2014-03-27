@@ -270,6 +270,17 @@
 					width: auto;
 				}
 
+            .image.tiny {
+                cursor: pointer;
+            }
+                .image.tiny img {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 0.2em;
+                    cursor: zoom-in;
+                }
+
+
 	/* Lists */
 
 		ul.default
@@ -1377,7 +1388,7 @@
 
 .code pre {
     margin: 0;
-    padding: 4px;
+    padding: 8px;
     font: 0.8em/1.5em Consolas,'Lucida Console','DejaVu Sans Mono',Monaco,'Courier New',monospace;
     display: block;
     white-space: pre-line;

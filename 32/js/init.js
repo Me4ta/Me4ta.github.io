@@ -184,5 +184,18 @@ jQuery(function() {
 });
 
 customStuff = function() {
-    console.log('custom stuff');
+    var toggle = true;
+    $('#img-mad').click(function() {
+
+        var $img = $(this).find('img');
+
+        if (toggle) {
+            toggle = false;
+            $img.transition({scale: 12.0});
+        } else {
+            toggle = true;
+            $img.transition({scale: 1.0});
+            //$img.css('position', 'relative');
+        }
+    });
 };
