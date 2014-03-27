@@ -1362,10 +1362,24 @@
     background: none;
 }
 
-.image .vertical img {
-    width: 50%;
+.margin-top-100 {
+    margin-top: 100px;
 }
 
-.image .centered img {
-    margin: 0px auto;
+/*.image .vertical img {*/
+    /*width: 50%;*/
+/*}*/
+
+/*.image .centered img {*/
+    /*margin: 0px auto;*/
+    /*width: 100%;*/
+/*}*/
+
+.code pre {
+    margin: 0;
+    padding: 4px;
+    font: 0.8em/1.5em Consolas,'Lucida Console','DejaVu Sans Mono',Monaco,'Courier New',monospace;
+    display: block;
+    white-space: pre-line;
+    border-radius: 0.5em;
 }
