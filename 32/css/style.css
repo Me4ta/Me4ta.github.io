@@ -1241,7 +1241,7 @@
 
 			.main > header p
 			{
-				margin: 2em 0 0 0;
+				margin: 2em 0 1em 0;
 				padding: 0;
 				text-align: center;
 			}
@@ -1341,8 +1341,9 @@
 {
     font-size: 70px;
 }
-.fa-heart-o-start
+.fa-icon-o-start
 {
+    margin-left: 5px;
     font-size: 0.8em;
     color: rgb(241, 167, 163);
 }
@@ -1351,4 +1352,20 @@
     font-size: 30px;
     color: #0074D9;
     margin-top: 20px;
+}
+
+.header {
+    height: 1000px;
+}
+
+.no-overlay:after{
+    background: none;
+}
+
+.image .vertical img {
+    width: 50%;
+}
+
+.image .centered img {
+    margin: 0px auto;
 }
