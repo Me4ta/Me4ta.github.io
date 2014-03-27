@@ -1172,7 +1172,7 @@
 	{
 		position: relative;
 		margin: 0;
-		background: url('../images/header.jpg');
+		background: url('../images/photos/005.jpg');
 		background-size: cover;
 		background-position: center center;
 		padding: 14em 0 14em 0;
@@ -1393,4 +1393,9 @@
     display: block;
     white-space: pre-line;
     border-radius: 0.5em;
+}
+
+.note {
+    display: block;
+    font-size: 0.7em;
 }

@@ -186,7 +186,6 @@ jQuery(function() {
 customStuff = function() {
     var toggle = true;
     $('#img-mad').click(function() {
-
         var $img = $(this).find('img');
 
         if (toggle) {
