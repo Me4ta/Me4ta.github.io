@@ -1,7 +1,7 @@
 
 jQuery.fn.spectragram.accessData = {
-    accessToken: '[43740318.0ae94b8.a3d05ebf373b49f28ac29322bff00f09]',
-    clientID: '[0ae94b89dc6e49628434dba83e32afba]'
+    accessToken: '43740318.0ae94b8.a3d05ebf373b49f28ac29322bff00f09',
+    clientID: '0ae94b89dc6e49628434dba83e32afba'
 };
 
 // jQuery
@@ -13,6 +13,8 @@ jQuery(function() {
 
 init = function() {
     $('#photo-list').spectragram('getUserFeed', {
-        query: ''
+        user_id: 'me4ta_forever',
+        query: 'me4ta_forever', 
+        max: 100
     });
 };
