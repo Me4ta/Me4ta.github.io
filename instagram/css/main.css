@@ -14,6 +14,7 @@ h2 {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 100;
+	text-align: center;
 }
 
 .container {
@@ -36,4 +37,6 @@ h2 {
 	.feed img {
 		width: 150px;
 		height: 150px;
+		border-radius: 5%;
+		margin: 7px;
 	}

@@ -16,5 +16,7 @@ init = function() {
         user_id: '404312414',
         query: 'me4ta_forever', 
         max: 100
+    }).done(function () {
+        console.log('blalaa');
     });
 };
