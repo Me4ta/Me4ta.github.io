@@ -26,7 +26,6 @@ h2 {
 
 .feed {
 	list-style: none;
-	list-style-type: decimal;
 	min-height: 300px;
 	overflow: hidden;
 }
