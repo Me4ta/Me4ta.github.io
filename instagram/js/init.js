@@ -15,8 +15,7 @@ init = function() {
     $('#photo-list').spectragram('getUserFeed', {
         user_id: '404312414',
         query: 'me4ta_forever', 
-        max: 100
-    }).done(function () {
-        console.log('blalaa');
+        max: 100,
+        recursive_calls: 8
     });
 };

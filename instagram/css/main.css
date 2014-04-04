@@ -29,7 +29,12 @@ h2 {
 	list-style: none;
 	min-height: 300px;
 	overflow: hidden;
-}
+}	
+	.feed .recent-photo img {
+		width: 300px;
+		height: 300px;
+	}
+
 	.feed li {
 		float: left;
 	}
