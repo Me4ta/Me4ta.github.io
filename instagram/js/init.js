@@ -13,7 +13,7 @@ jQuery(function() {
 
 init = function() {
     $('#photo-list').spectragram('getUserFeed', {
-        user_id: 'me4ta_forever',
+        user_id: '404312414',
         query: 'me4ta_forever', 
         max: 100
     });

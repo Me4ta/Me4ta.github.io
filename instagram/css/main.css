@@ -1,0 +1,40 @@
+ul {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+h2 {
+	font-family: Roboto, sans-serif;
+	font-size: 32px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 100;
+}
+
+.container {
+	float: left;
+	font-size: 14px;
+	margin: 0 10px;
+	text-align: center;
+	width: auto;
+}
+
+.feed {
+	list-style: none;
+	list-style-type: decimal;
+	min-height: 300px;
+	overflow: hidden;
+}
+	.feed li {
+		float: left;
+	}
+
+	.feed img {
+		width: 150px;
+		height: 150px;
+	}
