@@ -49,7 +49,10 @@ strong { font-weight: bold; }
 li { line-height: 24px; border-bottom: 1px solid #ccc; }
 p.enlarge { font-size: 144%; padding-right: 6.5em; line-height: 24px; }
 p.enlarge span { color: #000 }
-.contact-info { margin-top: 7px; }
+.contact-info { 
+	margin-top: 7px;
+	
+}
 .first h2 { font-style: italic; }
 .last { border-bottom: 0 }
 
@@ -83,4 +86,33 @@ a#pdf:hover { background: #222; }
 .yui-gf .yui-u{width:80.2%;}
 .yui-gf div.first{width:12.3%;}
 
+code {
+	font-family: Georgia;
+	background-color: white;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid darkgrey;
+	padding-left: 1px;
+	padding-right: 1px;
+}
 
+.yui-gb .portrait {
+	float: left;
+	width: 16%;
+}
+	.yui-gb .portrait img {
+		height: 120px;
+		width: 120px;
+		display:  inline;
+	}
+.yui-gb .name {
+	float: left;
+	width: 56%;
+}
+
+.yui-gb .email {
+	text-align: right;
+	float: right;
+	width: 20%;
+}
