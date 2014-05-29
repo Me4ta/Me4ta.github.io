@@ -67,7 +67,8 @@ a#pdf:hover { background: #222; }
 h4.location, .location { top: 1.45em; color: #aaa;}
 .job p { margin: 0.75em 0 2em 0; }
 
-.education h4 { position: absolute; right: 100px; }
+.education { position: relative; margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc; }
+.education h4 { position: absolute; top: 0.35em; right: 0 }
 
 .last { border: none; }
 .skills-list {  }
