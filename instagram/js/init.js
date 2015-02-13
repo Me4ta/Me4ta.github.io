@@ -16,6 +16,6 @@ init = function() {
         user_id: '404312414',
         query: 'me4ta_me', 
         max: 100,
-        recursive_calls: 8
+        recursive_calls: 80
     });
 };
