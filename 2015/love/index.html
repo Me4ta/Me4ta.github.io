@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="js/vendor/moment.min.js"></script>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link href='http://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -23,84 +24,142 @@
 
         <h1 id="main-title">All you need is Love</h1>
 
+        
         <div class="one-big-heart">
+            <div class="heart-big-wrapper">
+                <i class="fa fa-heart fa-stack-2x heart"></i>
+                <i class="fa fa-stack-2x number">14</i>
+            </div>
         
             <div class="heart-group">
-                <span class="heart fa-stack fa-lg top-left-corner">
+                <span class="heart 9 fa-stack fa-lg top-left-corner">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">9</i>
                 </span>        
 
-                <span class="heart fa-stack fa-lg">
+                <span class="heart 10 fa-stack fa-lg">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">10</i>
                 </span>
 
-                <span class="heart fa-stack fa-lg top-center">
-                    <i class="fa fa-heart fa-stack-2x"></i>
-                    <i class="fa fa-stack-2x number">11</i>
-                </span>
-
-                <span class="heart fa-stack fa-lg">
-                    <i class="fa fa-heart fa-stack-2x"></i>
-                    <i class="fa fa-stack-2x number">12</i>
-                </span>
-
-                <span class="heart fa-stack fa-lg top-right-corner">
+                <span class="heart 13 fa-stack fa-lg top-center">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">13</i>
                 </span>
 
+                <span class="heart 12 fa-stack fa-lg">
+                    <i class="fa fa-heart fa-stack-2x"></i>
+                    <i class="fa fa-stack-2x number">12</i>
+                </span>
+
+                <span class="heart 11 fa-stack fa-lg top-right-corner">
+                    <i class="fa fa-heart fa-stack-2x"></i>
+                    <i class="fa fa-stack-2x number">11</i>
+                </span>
+
             </div>
             <div class="heart-group">
-                <span class="heart current fa-stack fa-lg">
+                <span class="heart 1 current fa-stack fa-lg">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">1</i>
                 </span>        
 
-                <span class="heart fa-stack fa-lg">
+                <span class="heart 2 fa-stack fa-lg">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">2</i>
                 </span>
 
-                <span class="heart fa-stack fa-lg">
+                <span class="heart 3 fa-stack fa-lg">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">3</i>
                 </span>
 
-                <span class="heart fa-stack fa-lg">
+                <span class="heart 4 fa-stack fa-lg">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">4</i>
                 </span>
             </div>
             <div class="heart-group">
-                <span class="heart fa-stack fa-lg">
+                <span class="heart 5 fa-stack fa-lg">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">5</i>
                 </span>
 
-                <span class="heart fa-stack fa-lg">
+                <span class="heart 6 fa-stack fa-lg">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">6</i>
                 </span>
 
-                <span class="heart fa-stack fa-lg">
+                <span class="heart 7 fa-stack fa-lg">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">7</i>
                 </span>
             </div>
             <div class="heart-group">
-                <span class="heart fa-stack fa-lg">
+                <span class="heart 8 fa-stack fa-lg">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">8</i>
                 </span>
             </div>
         </div>
+        <div class="lists">
+            <ul  class="list list-1">
+                <li class="current">1. Movie</li>
+                <li>2. Unicorn + Octopus</li>
+                <li>3. Choco</li>
+                <li>4. Soap</li>
+                <li>5. This?</li>
+                <li>6. Hand Lotion</li>
+                <li>7. Nothing (book)</li>
+            </ul>
+            <ul class="list list-2">
+                <li>8. Robot</li>
+                <li>9. Secret</li>
+                <li>10. Body W</li>
+                <li>11. Pins</li>
+                <li>12. Dinner</li>
+                <li>13. Rhyme</li>
+                <li>14. <a href="http://36questionsinlove.com/">36 q</a></li>
+            </ul>
+        </div>
+        <div style="clear:both;"></div>
+        
         
 
         <style>
+        .list{
+            margin-top: 30px;
+            text-align: left;
+            padding-left: 0;
+        }
+        .list-1 {
+            float: left;
+            padding-left: 30%;
+            
+        }
+        .list-2 {
+            float: right;
+            width: 39.9%;
+        }
+        li {
+            opacity: 0.3;
+        }
+        li.current {
+            opacity: 1;
+            font-weight: bold;
+        }
+        ul {
+            font-size: 14pt;
+            list-style-type: none;
+        }
+        a {
+            color: #0074D9;
+            text-decoration: none;
+        }
+        
+
         .one-big-heart {
-            margin-top:100px;
+            position: relative;
         }
 
         .heart-group {
@@ -115,20 +174,34 @@
         .fa.number {
             color: white;
             transition: all 2s ease;
-            opacity: 0;
+            opacity: 0.6;
             text-shadow: none;
         }
-
+        .top-left-corner {
+            right: 0px;
+        }
+        .top-right-corner {
+            left: 0px;
+        }
         .top-left-corner, .top-right-corner {
-            font-size: 14pt;
+            font-size: 18pt;
+            top: 12px;
         }
         .top-center {
             font-size: 14pt;
+            top: 22px;
         }
 
         body {
             font-size: 24pt;
-            padding: 50px;
+            padding-top: 50px;
+            padding-left: 50px;
+            padding-right: 10%;
+
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            width: 888px;
+            margin: auto;
         }
         h1 {
             font-family: 'Calligraffitti', cursive;
@@ -150,6 +223,29 @@
             .heart.current > .number {
                 opacity: 0.6;
             }
+
+        .heart-big-wrapper {
+            opacity: 0;
+            margin-top: -50px;
+        }
+
+        .heart-big-wrapper .heart {
+            color: #FF4136;
+        }
+
+        .heart-big-wrapper i {
+            font-size: 320pt;
+            top: -52px;
+            left: 231px;
+            position: absolute;
+            opacity: .7;
+            width: inherit;
+            z-index: 1;
+        }
+        .heart-big-wrapper .number {
+            font-size: 290pt;
+            left: 210px;
+        }
         .heart-1 {
 
         }
