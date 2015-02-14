@@ -21,8 +21,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <h1 id="main-title">Get some l<i class="fa fa-heart-o fa-spin heart"></i>ve :)</h1>
+        <h1 id="main-title">All you need is Love</h1>
 
         <div class="one-big-heart">
         
@@ -54,7 +53,7 @@
 
             </div>
             <div class="heart-group">
-                <span class="heart fa-stack fa-lg">
+                <span class="heart current fa-stack fa-lg">
                     <i class="fa fa-heart fa-stack-2x"></i>
                     <i class="fa fa-stack-2x number">1</i>
                 </span>        
@@ -109,11 +108,15 @@
         }
         /*.fa-stack {
             color: #FF4136;
+            color: lighcoral;
+            crimson
+            text-shadow: 0px -2px 4px #222;
         }*/
         .fa.number {
             color: white;
             transition: all 2s ease;
             opacity: 0;
+            text-shadow: none;
         }
 
         .top-left-corner, .top-right-corner {
@@ -135,10 +138,18 @@
         }
             #main-title .heart {
                 font-size: 26pt;
+                text-shadow: none;
             }
         .heart {
             color: #FF4136;
+            opacity: 0.3;
         }
+            .heart.current {
+                opacity: 1;
+            }
+            .heart.current > .number {
+                opacity: 0.6;
+            }
         .heart-1 {
 
         }
