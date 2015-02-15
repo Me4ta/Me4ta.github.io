@@ -1,7 +1,8 @@
 (function(){
 
-    var startDateTime = moment([2015, 01, 14, 10, 0, 0]);
-    var halfAnHoursPassed = 13;
+    var startDateTime = moment([2015, 01, 14, 15, 43, 0]);
+    var intervalDurationMin = 1;
+    var intervalsPassed = 1;
 
     var getMinutesPassed = function() {    
         var difInMinutes = moment().diff(startDateTime, 'minutes');
@@ -10,8 +11,13 @@
 
 
     var doEvery = function(){
-        // halfAnHoursPassed = Math.floor(getMinutesPassed() / 30);
-        // console.log(halfAnHoursPassed);
+        //intervalsPassed = Math.floor(getMinutesPassed() / intervalDurationMin);
+        
+        var minutesPassedFromStart = moment().diff(startDateTime, 'seconds');
+        var momentDuration = moment.duration(minutesPassedFromStart, 'seconds');
+        
+        $('.time-left').text(momentDuration.minutes() + ' min ' 
+            + momentDuration.seconds() + ' sec ');
     }
 
     var updateCurrentTo = function(i) {
@@ -45,7 +51,7 @@
         setInterval(doEvery, 1000);
 
         var i;
-        for (i = 1; i <= halfAnHoursPassed; i++) {
+        for (i = 1; i <= intervalsPassed; i++) {
             updateCurrentTo(i);
         }
 
