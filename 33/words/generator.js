@@ -14,33 +14,7 @@ var generateLineOf = function(length){
     return text;
 }
 
-var generateSquare = function(x, y) {
-    var square = '';
-    for(var i=0; i<y; i++) {
-        square += generateLineOf(x) + '\n';
-    }
-
-    return square;
-}
-
-var higlightWord = function(wordToHiglight, color, squareOfWords) {
-    var coloredSquare = '';
-    var wordToHiglightArray = wordToHiglight.split('');
-    var currentLetter = wordToHiglightArray.shift();
-    var chalkColor = color || 'white';
-
-    _.each(squareOfWords, function(letter) {
-        if (letter == currentLetter) {
-            coloredSquare += chalk[chalkColor](letter);
-            currentLetter = wordToHiglightArray.shift();
-        } else {
-            coloredSquare += chalk.gray(letter);
-        }    
-    });    
-    console.log(coloredSquare);
-}
-
-var checkWordsCount = function(words) {
+var testWordsCount = function(words) {
     var expectedCount = 33;
     if (words.length == expectedCount) {
         log.ok('total words: ' + chalk.yellow(words.length));
@@ -49,7 +23,7 @@ var checkWordsCount = function(words) {
     }
 }
 
-var checkCharsCount = function(chars) {
+var testCharsCount = function(chars) {
     var expectedCount = 132 //33 years * 4 (code lenght);
     if (chars.length == expectedCount) { 
         log.ok('total chars: ' + chalk.yellow(chars.length));
@@ -58,6 +32,68 @@ var checkCharsCount = function(chars) {
     }   
 }
 
+var createColoredSquareFromWords = function(words){
+    var wordsJoined = words.join('').toUpperCase();
+
+    return _(wordsJoined).map(function(letter){
+        return {
+            letter: letter,
+            color: 'gray'
+        }
+    }).value();   
+}
+
+var higlightWord = function(wordToHiglight, color, squareOfWords) {
+    var coloredSquare = [];
+
+    var wordToHiglightArray = wordToHiglight.toUpperCase().split('');
+    
+    var currentLetter = wordToHiglightArray.shift();
+    var higlightColor = color || 'white';
+    var highlightedCount = 0;
+
+    _.each(squareOfWords, function(item) {
+        var itemCopy = _.clone(item);
+
+        if (item.letter == currentLetter) {
+            itemCopy.color = higlightColor;
+            currentLetter = wordToHiglightArray.shift();
+            highlightedCount++;
+        }
+
+        coloredSquare.push(itemCopy);
+    });
+
+    if (highlightedCount !== wordToHiglight.length) {
+        throw 'Word ' + wordToHiglight + ' cat not be higligted fully';
+    }    
+    
+    return coloredSquare;
+}
+
+
+var printColoredSquare = function(square, options){
+    var options = options || {
+        lineLength: 12
+    };
+
+    for(var i = 0; i < square.length; i++) {
+        if (i % options.lineLength === 0 && i !== 0) {
+            console.log();
+        }
+
+        var color = square[i].color;
+        var letter = square[i].letter;
+
+        //if (color != 'gray') 
+            process.stdout.write(chalk[color](letter));
+        
+        
+    }
+    console.log();
+}
+
+//todo: write tests verifying that it's able to find all words in a square
 var words = [
     'Phoebe', 'Wallie', 'Chandler', 'Baby', 'Bike', 'Me4ta', 'Restuta', 'Racing',
     'Love', 'Will', 'You', 'Marry', 'Me', 'California', '8', 'Sex', 'Music', 'Time',
@@ -65,42 +101,31 @@ var words = [
     'BayArea', 'Talks', 'Travel', 'Vegas', 'Respect', 'Books', 'Unicorns'
 ];
 
-checkWordsCount(words);
-checkCharsCount(words.join('').split(''));
+testWordsCount(words);
+testCharsCount(words.join('').split(''));
 console.log();
 
+//var coloredSquare = createColoredSquareFromWords(words);
+var coloredSquare = createColoredSquareFromWords(
+    ['PHOEBEWALLIECHANDLERBAYIKEME4TARESTUTARCINGLOVEILYOUMRECFORNIA8SEXICTGETHERNAFEEGКАСЯЛЬКАKSPECT']);
 
-var createSquareFromWords = function(words, options) {
-    var options = options || {
-        lineLength: 12
-    };
+var squareWithHiglights = coloredSquare;
+_.each(words, function(word){
+    squareWithHiglights = higlightWord(word, 'white', squareWithHiglights);
+});
+    
+printColoredSquare(squareWithHiglights, {lineLength: 12});
 
-    var wordsJoined = words.join('').toUpperCase();
-    var wordsWithNewLines = '';
-    var currentLineLength = 0;
 
-    for(var i = 0; i < wordsJoined.length; i++) {
-        if (i % options.lineLength === 0 && i !== 0) {
-            wordsWithNewLines += '\n';
-        }
-
-        wordsWithNewLines += wordsJoined[i];
-    }
-
-    return wordsWithNewLines;
-}
-
-var squareOfWords = createSquareFromWords(words, {lineLength: 12});
-//higlightWord('VEGAS', 'white', squareOfWords);
 
 //can higlight whole word by using "contains", but higligting closest is tough task
-higlightWord('TOGETHER', 'white', squareOfWords);
+    /* brute version casn be:
+        01: contains "TRAVEL" ?
+            02: no => contains "TRAVE"
+                03: yes => search for "L"
+                04: no => goto 02
 
-//var squareOfWords = generateSquare(12,11);
-
-//higlightWord('LOVE', 'red', squareOfWords);
-//higlightWord('WILL', 'white', squareOfWords);
-
+    */
 
 console.log(chalk.grey('--- done ---') + '\n');
 

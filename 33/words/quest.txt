@@ -1,0 +1,17 @@
+web app at me4ta.me/33/quest
+
+33-levels
+
+level names with completion state on the left:
+    ✓ 1: Intro
+    ✓ 2: Do smthing!
+
+arbitrary html in the center with instructions
+
+enter code box at the bottom with "Next" button:
+    #[     ]  next->
+
+codes are getting built into square after each level
+progress is logged via socket.io, so I can see where she is
+
+
