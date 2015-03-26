@@ -41,10 +41,11 @@ var higlightWord = function(wordToHiglight, color, squareOfWords) {
 }
 
 var checkWordsCount = function(words) {
-    if (words.length == 33) {
+    var expectedCount = 33;
+    if (words.length == expectedCount) {
         log.ok('total words: ' + chalk.yellow(words.length));
     } else {
-        log.fail('total words: ' + chalk.yellow(words.length));    
+        log.fail('total words: ' + chalk.yellow(words.length) + chalk.grey('/' + expectedCount));    
     }
 }
 
@@ -53,7 +54,7 @@ var checkCharsCount = function(chars) {
     if (chars.length == expectedCount) { 
         log.ok('total chars: ' + chalk.yellow(chars.length));
     } else {
-        log.fail('total chars: ' + chalk.yellow(chars.length));    
+        log.fail('total chars: ' + chalk.yellow(chars.length) + chalk.grey('/' + expectedCount));    
     }   
 }
 
@@ -79,18 +80,21 @@ var createSquareFromWords = function(words, options) {
     var currentLineLength = 0;
 
     for(var i = 0; i < wordsJoined.length; i++) {
-        wordsWithNewLines += wordsJoined[i];
-
         if (i % options.lineLength === 0 && i !== 0) {
             wordsWithNewLines += '\n';
         }
+
+        wordsWithNewLines += wordsJoined[i];
     }
 
     return wordsWithNewLines;
 }
 
 var squareOfWords = createSquareFromWords(words, {lineLength: 12});
-console.log(squareOfWords);
+//higlightWord('VEGAS', 'white', squareOfWords);
+
+//can higlight whole word by using "contains", but higligting closest is tough task
+higlightWord('TOGETHER', 'white', squareOfWords);
 
 //var squareOfWords = generateSquare(12,11);
 

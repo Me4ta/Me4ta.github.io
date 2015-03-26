@@ -1,0 +1,23 @@
+algo:
+    - sort words from longest to shortest
+    - take first word
+    - take first letter of second word
+    - 
+
+
+12: phoebewallie
+
+8: chandler
+
+first word length ~ second word length
+8~1 = random index from 0 to 8
+8~2 = 
+    8-1 random index from 0 to 8-1 
+        (вставить по случайному индексу от нуля и до конца, но так, чтобы в худшем случае осталось место для остальных букв, если вставится в конец, то остальные станут рядом? )
+    8-1 random index from 0 to 8
+
+Baby
+Bike
+
+
+
