@@ -1,0 +1,15 @@
+{
+  "name": "words",
+  "version": "0.0.1",
+  "description": "generates squares of words",
+  "main": "generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anton Vynogradenko <restuta8@gmail.com> (http://restuta.me)",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "chalk": "^1.0.0"
+  }
+}
