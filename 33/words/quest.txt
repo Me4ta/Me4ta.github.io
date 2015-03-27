@@ -75,26 +75,43 @@ arbitrary html in the center with instructions
 enter code box at the bottom with "Next" button:
     #[     ]  next->
 
-codes are getting built into square after each level
-progress is logged via socket.io, so I can see where she is
+- codes are getting built into square after each level
+- progress is logged via socket.io, so I can see where she is
+- store in local storage progress
+- each level (if accessed) have predefined square and progress 
 
 
 1) собрать пазл (небольшой), перевернуть :)
-2) на однойиз кучи бумажек
+2) на одной из кучи бумажек
 3) take some "rest"
 4) кубики
 5) слепить единорожков
 6) сделать монстров
-7) доставка пиццы (на дне коробки) 
-...
+7) доставка пиццы (на дне коробки)  
 8) 8
 9) поиск дома
 10) на дне чего-то, что выпить?
 11) заморозить бутылку )пусть размораживает)
 12) за одним из стикеров
 13) on green card (ENAKF)
-14) Слепить единорога и она должна слепить 3 животных 
 15) Фотку Фиби с рогом
+16)
+17)
+18)
+19)
+20)
+21)
+22)
+23)
+24)
+25)
+26)
+27)
+28)
+29)
+30)
+31)
+32) дать ответ на главный вопрос =) (код на кольце)
 
 33) поехать на диабло to find there your “Love”?
 
