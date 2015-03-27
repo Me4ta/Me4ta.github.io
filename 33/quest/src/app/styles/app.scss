@@ -58,15 +58,15 @@ $sidebar-width: 220px;
 
       font-size: 12px;
 
-      //color: #222;
-      //background-color: transparent;
-      color: rgba(255, 255, 255, 0.3);
-      background-color: #222;
+      color: #222;
+      background-color: transparent;
+//      color: rgba(255, 255, 255, 0.3);
+//      background-color: #222;
 
 
       float: right;
       //border: 1px dotted grey;
-      padding: 20px;
+      //padding: 20px;
       margin: auto;
 
       position: relative;
@@ -87,6 +87,7 @@ $sidebar-width: 220px;
       p {
         padding: 0;
         margin: 0;
+        opacity: 0.5;
       }
 
       .inner-wrapper {
@@ -133,5 +134,69 @@ $sidebar-width: 220px;
   right: 0;
   bottom: 0;
 }
+
+#ribbon{
+  position:relative;
+  width:60px;
+  height:60px;
+  transform:rotate(45deg);
+  margin:auto;
+  margin-bottom:-38px;
+  border-radius:0 8px 0 8px;
+
+}
+#ribbon:before{
+  content:"";
+  height:24px;
+  width:100%;
+  background-color:#F04D4D;
+  display:block;
+  position:absolute;
+  top:18px;
+  box-shadow:0 0 5px 0px rgba(0,0,0,0.4);
+  border-radius:inherit;
+
+}
+#ribbon:after{
+  content:"";
+  height:100%;
+  width:24px;
+  background-color:#F04D4D;
+  display:block;
+  margin:auto;
+  box-shadow:0 0 5px 0px rgba(0,0,0,0.4);
+  border-radius:inherit;
+}
+#giftbox{
+  padding: 15px;
+  position: relative;
+  margin: auto;
+  background-color: white;
+  border-radius: 4px;
+  //border: 1px solid rgba(128, 128, 128, 0.21);
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  .ribbon {
+    background-color: rgba(250, 128, 114, 0.6);
+    position: absolute;
+    z-index: 888;
+  }
+  .vertical-ribbon {
+    width: 20px;
+    height: 135px;
+
+    margin-top: -15px;
+    margin-left: 60px;
+  }
+
+  .horizontal-ribbon {
+    height: 20px;
+    width: 167px;
+    margin-left: -15px;
+    margin-top: 40px;
+  }
+}
+
 
 
