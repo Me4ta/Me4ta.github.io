@@ -1,0 +1,20 @@
+<li class="advisor-message media">
+    <span class="pull-left text-center">
+        <img {{bind-attr src=message.profileImageUrl}} class="img-circle media-object advisor-image" alt="avatar">
+        <img {{bind-attr src=starRatingImageUrl}} alt="stars" border="0">
+    </span>
+
+    <div class="media-body">
+        <h4 class="media-heading">
+            <span class="advisor-name">{{message.advisorName}}</span>
+            <small><i>Posted on {{message.postedDate}} (8 seconds ago)</i></small>
+        </h4>
+        <span class="user-message inline-block">
+            {{message.answer}}
+        </span>
+        <div>
+        {{#link-to 'chat' (query-params advisorid=message.advisorId userid=userId question=question answer=message.answer)}}
+            Continue in chat...{{/link-to}}
+        </div>
+    </div>
+</li>

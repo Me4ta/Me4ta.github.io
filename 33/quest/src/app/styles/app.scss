@@ -1,0 +1,185 @@
+$green: #18BC9C;
+
+.main-content {
+  /*margin-top: 10%;*/
+}
+
+.ask-keen-content {
+  margin-top: 10%;
+}
+
+.min-header-nav-bar {
+  height: 66px;
+
+  .logo {
+    padding-top: 15px;
+  }
+}
+
+.min-header-sub-nav-bar-main {
+  background-color: $green;
+  height: 5px;
+}
+
+.min-header-sub-nav-bar-secondary {
+  background-color: #cce49c;
+  height: 3px;
+}
+
+/* Advisor message styles */
+.advisor-image {
+  width: 75px;
+  height: 75px;
+}
+
+.advisor-answer-mask {
+//  background-color: blanchedalmond;
+}
+
+.price-per-minute{
+  font-weight: normal;
+  font-family: monospace;
+}
+
+.user-message {
+
+}
+
+.see-that-you-are-typing {
+  font-size: 12px;
+}
+
+/*dash-board styles*/
+.advisor-dashboard-bg {
+  background-image: url('/images/advisor-dashboard.png');
+  width: 1200px;
+  height: 900px;
+  background-repeat: no-repeat;
+}
+
+/*Quick fix for the background of notification boxes. Somehow the styles of ember-notify is not getting included. Doing this for time saving */
+.alert-box.success {
+  background-color: $green;
+  border-color: #3a945b;
+  color: #FFF;
+}
+
+.advisor-name {
+  text-transform: capitalize;
+}
+
+.consumer-question {
+  border-radius: 20px;
+  h2 {
+    margin-top: 10px;
+  }
+}
+
+.secondary {
+  opacity: 0.8;
+}
+
+.blurred {
+  color: transparent;
+  text-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+
+
+.question {
+  background-color: rgb(184, 232, 223);
+  color: #222;
+  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.green {
+  color: $green;
+}
+
+.alert-box.success input, button, textarea {
+  color: #000;
+}
+.is-replying {
+  font-style: italic;
+}
+
+.position-center {
+  position: fixed;;
+  top: 30%;
+  left: 40%;
+  right: 0;
+  bottom: 0;
+}
+
+.replying-advisor-name {
+  color: $green;
+  text-transform: capitalize;
+}
+
+.save-name {
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 680px) {
+  .position-center {
+    left: 0;
+  }
+
+  .advisor-dashboard-bg {
+    background-image: none;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+.btn-reply {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.hundreds-advisors {
+  color: mediumorchid;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+#overlay-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  z-index: 5;
+  display: none;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+//  display: none;
+}
+
+.user-status {
+  font-style: italic;
+}
+
+.panel-info{
+  border-color: $green;
+}
+
+.panel-info > .panel-heading {
+  background-color:  $green;
+  border-color: $green;
+}
