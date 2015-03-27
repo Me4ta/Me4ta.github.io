@@ -15,7 +15,7 @@ var generateLineOf = function(length){
 }
 
 var testWordsCount = function(words) {
-    var expectedCount = 33;
+    var expectedCount = 32;
     if (words.length == expectedCount) {
         log.ok('total words: ' + chalk.yellow(words.length));
     } else {
@@ -24,12 +24,34 @@ var testWordsCount = function(words) {
 }
 
 var testCharsCount = function(chars) {
-    var expectedCount = 132 //33 years * 4 (code lenght);
+    var expectedCount = 128 //32 years * 4 (code lenght); + 4 is from LOVE extra
     if (chars.length == expectedCount) { 
         log.ok('total chars: ' + chalk.yellow(chars.length));
     } else {
         log.fail('total chars: ' + chalk.yellow(chars.length) + chalk.grey('/' + expectedCount));    
     }   
+}
+
+var testWordsAreInSquare = function(words, square) {
+    var allOk = true;
+
+    _.each(words, function(word){
+        var failed = false;
+
+        higlightWord(word, 'white', square, function(notHiglightedWord, msg){
+            log.fail(notHiglightedWord);
+            failed = true;
+            allOk = false;
+        });
+
+        // if (!failed) {
+        //     log.ok(word);
+        // }
+    });
+
+    if (allOk) {
+        log.ok('all ' + chalk.yellow(words.length) + ' words were found in Square');
+    }
 }
 
 var createColoredSquareFromWords = function(words){
@@ -43,34 +65,63 @@ var createColoredSquareFromWords = function(words){
     }).value();   
 }
 
-var higlightWord = function(wordToHiglight, color, squareOfWords) {
-    var coloredSquare = [];
+var createSquareAndSuffle = function(words){
+    var suffledWords = words;
 
-    var wordToHiglightArray = wordToHiglight.toUpperCase().split('');
-    
-    var currentLetter = wordToHiglightArray.shift();
+    return createColoredSquareFromWords(suffledWords);
+}
+
+var higlightWord = function(wordToHiglight, color, squareOfWords, errorCallback) {
+    var coloredSquare = _.clone(squareOfWords, /*deep*/true);
     var higlightColor = color || 'white';
     var highlightedCount = 0;
 
-    _.each(squareOfWords, function(item) {
-        var itemCopy = _.clone(item);
+    var allWordsInOneString = _.map(squareOfWords, function(item){
+        return item.letter;
+    }).join('');
 
-        if (item.letter == currentLetter) {
-            itemCopy.color = higlightColor;
-            currentLetter = wordToHiglightArray.shift();
-            highlightedCount++;
+    var indexOfWordToHiglight = allWordsInOneString.indexOf(wordToHiglight.toUpperCase());
+
+    //meaning word can be higligted as a whole
+    if (indexOfWordToHiglight >= 0) {
+
+        var startIndex = indexOfWordToHiglight;
+        var endIndex = indexOfWordToHiglight + wordToHiglight.length - 1;
+
+        for(var i = startIndex; i <= endIndex; i++) {
+            coloredSquare[i].color = higlightColor;
         }
 
-        coloredSquare.push(itemCopy);
-    });
+        highlightedCount = wordToHiglight.length;
+    } else { //if can't be higlighted as a whole search through
+        var wordToHiglightArray = wordToHiglight.toUpperCase().split('');
+        var currentLetter = wordToHiglightArray.shift();
 
-    if (highlightedCount !== wordToHiglight.length) {
-        throw 'Word ' + wordToHiglight + ' cat not be higligted fully';
+        _.each(coloredSquare, function(item) {
+            if (item.letter == currentLetter) {
+                item.color = higlightColor;
+                currentLetter = wordToHiglightArray.shift();
+                highlightedCount++;
+            }
+        });
+    }
+
+    if (errorCallback && highlightedCount !== wordToHiglight.length) {
+        errorCallback(wordToHiglight, 'Word ' + wordToHiglight + ' cat not be higligted fully');
     }    
     
     return coloredSquare;
 }
 
+var higlightSeveral = function(words, color, squareOfWords){
+    var square = squareOfWords;
+
+    _.each(words, function(word){
+        square = higlightWord(word, color, square);
+    });
+
+    return square;
+}
 
 var printColoredSquare = function(square, options){
     var options = options || {
@@ -96,25 +147,35 @@ var printColoredSquare = function(square, options){
 //todo: write tests verifying that it's able to find all words in a square
 var words = [
     'Phoebe', 'Wallie', 'Chandler', 'Baby', 'Bike', 'Me4ta', 'Restuta', 'Racing',
-    'Love', 'Will', 'You', 'Marry', 'Me', 'California', '8', 'Sex', 'Music', 'Time',
-    'Together', 'Sunset', 'Ocean', 'Coffee', 'Hue', 'Wine', 'Morning', 'Касялька', 
-    'BayArea', 'Talks', 'Travel', 'Vegas', 'Respect', 'Books', 'Unicorns'
-];
-
-testWordsCount(words);
-testCharsCount(words.join('').split(''));
-console.log();
+    'Will', 'You', 'Marry', 'Me', 'California', '8', 'Sex', 'Music', 'Time',
+    'Together', 'Sunset', 'Ocean', 'Coffee', 'Hue', 'Wine', 'Morning', 
+    'Касялька', 'BayArea', 'Talks', 'Travel','Vegas', 'Respect', 'Books', 'Unicorns'
+]; // + love
 
 //var coloredSquare = createColoredSquareFromWords(words);
-var coloredSquare = createColoredSquareFromWords(
-    ['PHOEBEWALLIECHANDLERBAYIKEME4TARESTUTARCINGLOVEILYOUMRECFORNIA8SEXICTGETHERNAFEEGКАСЯЛЬКАKSPECT']);
+//var coloredSquare = createColoredSquareFromWords(_.shuffle(words));
+var coloredSquare = createSquareAndSuffle(_.shuffle(words));
+//var coloredSquare = createColoredSquareFromWords(['PHOEBEWALLIECHANDLERBAYIKEME4TARESTUTARCINGLOVEILYOUMRECFORNIA8SEXICTGETHERNAFEEGКАСЯЛЬКАKSPECT']);
 
-var squareWithHiglights = coloredSquare;
-_.each(words, function(word){
-    squareWithHiglights = higlightWord(word, 'white', squareWithHiglights);
-});
-    
-printColoredSquare(squareWithHiglights, {lineLength: 12});
+
+testWordsCount(words);
+testCharsCount(coloredSquare);
+testWordsAreInSquare(words, coloredSquare);
+console.log();
+
+//higlight all one by one
+// var squareWithHiglights = coloredSquare;
+// _.each(words, function(word){
+//     //squareWithHiglights = higlightWord(word, 'white', squareWithHiglights);
+
+//     var x = higlightWord(word, 'white', squareWithHiglights);
+//     printColoredSquare(x, {lineLength: 12});  
+//     console.log();  
+// });
+
+var square = higlightSeveral(['will', 'you', 'marry', 'me'], 'white', coloredSquare);
+square = higlightWord('morning', 'cyan', square);
+printColoredSquare(square, {lineLength: 16});
 
 
 

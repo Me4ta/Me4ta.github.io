@@ -1,5 +1,28 @@
 web app at me4ta.me/33/quest
 
+Ввести код:
+33 уровня
+4 digit completiondes, 33*4 = 132 symbol
+12x11 grid
+
+33 * 4 = 132
+
+32 * 4 = 128
+    16 lines x 8 rows + 4 on top = LOVE 
+
+    gives total of 33x4 = 132
+
+          LOVE
+    HUE8WALLIESUNSET
+    RESTUTABIKELOVES
+    EXRACINGMUSICWIL
+    LME4TAWINECHANDL
+    ERCOFFEEOCEANMOR
+    NINGPHOEBETOGETH
+    ERMARRYMEBABYTIM
+    ECALIFORNIAYOUXX
+
+
 33-levels
 
 level names with completion state on the left:
