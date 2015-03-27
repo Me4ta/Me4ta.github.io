@@ -1,5 +1,5 @@
 html, body, .ember-application,
-.ember-application>.ember-view,
+.ember-application > .ember-view,
 .main-content {
   width: 100%;
   height: 100%;
@@ -42,23 +42,60 @@ $sidebar-width: 220px;
 
   }
 
-  .level-content{
+  .level-content {
     min-height: 80%;
+
+    .corner-cube {
+      font-family: "Lucida Console", Consolas, Menlo, Monaco, monospace;
+      line-height: 1.2;
+      text-align: center;
+      color: #222;
+      font-size: 12px;
+
+      background-color: transparent;
+
+      width: 200px;
+      height: 200px;
+      float: right;
+      border: 1px dotted grey;
+      padding: 15px;
+      margin: auto;
+
+      position: relative;
+      transition: all 0.5s;
+
+      & * {
+        transition: all 0.5s;
+      }
+
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em;
+      }
+
+      p {
+        padding: 0;
+        margin: 0;
+      }
+
+      .inner-wrapper {
+        vertical-align: middle;
+        display: inline-block;
+      }
+
+      .high {
+        color: deepskyblue;
+      }
+    }
   }
 
   .next-level-controls {
     min-height: 20%;
   }
 }
-
-
-
-
-
-
-
-
-
 
 .code {
   width: 300px;
@@ -68,15 +105,13 @@ $sidebar-width: 220px;
   }
 }
 
-
-
 .secondary {
   opacity: 0.8;
 }
 
 .blurred {
   color: transparent;
-  text-shadow: 0 0 7px rgba(0,0,0,0.5);
+  text-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
 }
 
 .green {

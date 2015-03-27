@@ -3,13 +3,26 @@
         left sidebar
     </nav>
     <div class="content-wrapper">
-        <div class="row level-content" style="background-color: lightpink;">
+        <div class="row level-content">
             <div class="col-sm-12">
+                <div class="corner-cube">
+                    <div class="inner-wrapper">
+                        <p>NAHC EOHP AWEB EILL</p>
+                        <p>LDEM IBRE RTEK LEVA</p>
+                        <p>WAT4 CLLI EFFO SERE</p>
+                        <p>ATUT BUOY WYBA TENI</p>
+                        <p>XESO RRAM SERY TCEP</p>
+                        <p>HTEG ITRE M?EM CISU</p>
+                        <p>ЯСАК АКЬЛ CINU 8NRO</p>
+                        <p>KOOB CARS VGNI SAGE</p>
+                    </div>
+                </div>
+
                 level content
               {{outlet}}
             </div>
         </div>
-        <div class="row next-level-controls" style="background-color: lightyellow;">
+        <div class="row next-level-controls" style="background-color: lightpink;">
             <div class="col-sm-offset-3 col-sm-6 col-md-6 col-lg-offset-4 col-lg-3">
                 <div>button content</div>
                 <div class="input-group input-group-lg code">
@@ -17,9 +30,7 @@
                   {{input-with-on-change class="form-control" type="text" maxlength="4" value=code
                   placeholder="code" onInputChange="onInputChange" startedTyping="startedTyping"}}
                     <span class="input-group-btn">
-              <button {{bind-attr class=":btn :btn-success"}}
-                      type="submit" {{action 'submitCode'}}>Next
-              </button>
+                  <button {{bind-attr class=":btn :btn-success"}} type="submit" {{action 'submitCode'}}>Next</button>
             </span>
                 </div>
             </div>
