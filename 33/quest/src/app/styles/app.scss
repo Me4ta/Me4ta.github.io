@@ -46,19 +46,27 @@ $sidebar-width: 220px;
     min-height: 80%;
 
     .corner-cube {
-      font-family: "Lucida Console", Consolas, Menlo, Monaco, monospace;
-      line-height: 1.2;
+
+      i {
+        font-style: normal;
+        color: deepskyblue;
+      }
+
+      font-family: 'Cousine', monospace;
+      line-height: 1.1;
       text-align: center;
-      color: #222;
+
       font-size: 12px;
 
-      background-color: transparent;
+      //color: #222;
+      //background-color: transparent;
+      color: rgba(255, 255, 255, 0.3);
+      background-color: #222;
 
-      width: 200px;
-      height: 200px;
+
       float: right;
-      border: 1px dotted grey;
-      padding: 15px;
+      //border: 1px dotted grey;
+      padding: 20px;
       margin: auto;
 
       position: relative;
