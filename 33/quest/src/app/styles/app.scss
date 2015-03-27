@@ -1,16 +1,74 @@
+html, body, .ember-application,
+.ember-application>.ember-view,
+.main-content {
+  width: 100%;
+  height: 100%;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+body {
+  min-height: 100%;
+}
+
+.quest-content,
+.content-wrapper {
+  height: 100%;
+}
+
 $green: #18BC9C;
+$sidebar-width: 220px;
 
 .main-content {
   /*margin-top: 10%;*/
 }
 
-.dbg-outline {
-  border: 2px dotted lightblue;
+.quest-content {
+  .left-sidebar {
+    transition: all 0.5s;
+
+    position: absolute;
+    width: $sidebar-width;
+    background-color: #2f4050;
+    border-color: #2f4050;
+    height: 100%;
+  }
+
+  .content-wrapper {
+    margin: 0 0 0 $sidebar-width;
+    padding: 0 15px;
+
+  }
+
+  .level-content{
+    min-height: 80%;
+  }
+
+  .next-level-controls {
+    min-height: 20%;
+  }
 }
 
-.input-code {
-  text-transform: uppercase;
+
+
+
+
+
+
+
+
+
+.code {
+  width: 300px;
+
+  input {
+    text-transform: uppercase;
+  }
 }
+
+
 
 .secondary {
   opacity: 0.8;
@@ -33,7 +91,4 @@ $green: #18BC9C;
   bottom: 0;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-}
+
