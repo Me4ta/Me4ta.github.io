@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.ObjectController.extend({
   code:'',
 
+  _init: function() {
+    console.log('quest controller');
+  }.on('init'),
+
   actions: {
     submitCode: function() {
       console.log(this.get('code'));
