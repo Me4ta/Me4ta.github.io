@@ -71,7 +71,8 @@ var createSquareAndSuffle = function(words){
     return createColoredSquareFromWords(suffledWords);
 }
 
-var higlightWord = function(wordToHiglight, color, squareOfWords, errorCallback) {
+var higlightWord = function(word, color, squareOfWords, errorCallback) {
+    var wordToHiglight = word.replace(/ /g,'');
     var coloredSquare = _.clone(squareOfWords, /*deep*/true);
     var higlightColor = color || 'white';
     var highlightedCount = 0;
@@ -94,7 +95,7 @@ var higlightWord = function(wordToHiglight, color, squareOfWords, errorCallback)
 
         highlightedCount = wordToHiglight.length;
     } else { //if can't be higlighted as a whole search through
-        log.fail('  ' +chalk.blue(wordToHiglight) + ' is not whole');
+        //log.fail('  ' +chalk.blue(wordToHiglight) + ' is not whole');
         var wordToHiglightArray = wordToHiglight.toUpperCase().split('');
         var currentLetter = wordToHiglightArray.shift();
 
@@ -129,7 +130,38 @@ var printColoredSquare = function(square, options){
         lineLength: 12
     };
 
+    var currentWord = [];
+
     for(var i = 0; i < square.length; i++) {
+        
+        if (i % options.lineLength === 0 && i !== 0) {
+            currentWord.push('\n');
+        }
+
+        var color = square[i].color;
+        var letter = square[i].letter;
+
+        currentWord.push(chalk[color](letter));
+    }
+
+    process.stdout.write(currentWord.join(''));    
+    console.log();
+}
+
+var _printColoredSquareSplit = function(square, options, quadProcessingFunc) {
+    var options = options || {
+        lineLength: 12
+    };
+
+    var currentQuad = [];
+
+    for(var i = 0; i < square.length; i++) {
+        if (i % 4 === 0 && i !== 0) {
+            process.stdout.write(quadProcessingFunc(currentQuad).join(''));    
+            currentQuad = [];
+            process.stdout.write(' ');
+        }
+
         if (i % options.lineLength === 0 && i !== 0) {
             console.log();
         }
@@ -137,30 +169,43 @@ var printColoredSquare = function(square, options){
         var color = square[i].color;
         var letter = square[i].letter;
 
-        //if (color != 'gray') 
-            process.stdout.write(chalk[color](letter));
-        
+        currentQuad.push(chalk[color](letter));
         
     }
+
+    process.stdout.write(quadProcessingFunc(currentQuad).join(''));    
     console.log();
+}
+
+var printColoredSquareSplit = function(square, options){
+    _printColoredSquareSplit(square, options, function(currentQuad){
+        return currentQuad;
+    })
+}
+
+var printColoredSquareSplitReversed = function(square, options){
+ _printColoredSquareSplit(square, options, function(currentQuad){
+        return currentQuad.reverse();
+    })
 }
 
 //todo: write tests verifying that it's able to find all words in a square
 var wordsToCheck = [
     'Phoebe', 'Wallie', 'Chandler', 'Baby', 'Bike', 'Me4ta', 'Restuta', 'Racing',
-    'Will', 'You', 'Marry', 'Me', 'California', '8', 'Sex', 'Music', 'Time',
+    'Will', 'You', 'Marry', 'Me?', 'California', '8', 'Sex', 'Music', 'Time',
     'Together', 'Sunset', 'Ocean', 'Coffee', 'Hue', 'Wine', 'Morning', 
-    'Касялька', 'USA', 'Talks', 'Travel','Vegas', 'Respect', 'Books', 'Unicorns'
+    'Касялька', 'USA', 'Talks', 'Travel','Vegas', 'Respect', 'Books', 'Unicorn'
 ]; // + love
 
 var words = [
     'Chan', 'Phoebe', 'Wallie', 
-    'dler', '8','Bike', 'Travel', 
-    'Me4ta', 'Will', 'Coffee', 'restuta',
-    'You', 'Baby','Wine', 'To',  
-    'Sex', 'Music', 'gether', 'Marry','Respect', 
-    'Ti', 'Касялька', 'Unicorns', 
-    'books','racing','Vegas','me'
+    'Me', 'dler', 'Bike', 'Travel', 
+    '4ta', 'Will', 'Coffee', 'res', 'tuta',
+    'You', 'Baby','Wine',  'To',  
+    'Sex', 'Marry','Respect',
+    'gether', 'time?', 'Music',
+    'Касялька', 'Unicorn',  '8',
+    'books','racing','Vegas'
 ]; // + love
 
 
@@ -186,20 +231,22 @@ console.log();
 // });
 
 var square = coloredSquare;
-square = higlightSeveral(['will', 'you', 'marry', 'sme'], 'white', square);
-//square = higlightSeveral(['tttttogether'], 'cyan', square);
+square = higlightSeveral(['will', 'you', 'marry', 'me?'], 'white', square);
+square = higlightSeveral(['Касялька'], 'cyan', square);
+//square = higlightSeveral(['cin', 'vegas'], 'cyan', square);
+//square = higlightSeveral([''], 'red', square);
+
+console.log();
+console.log(chalk.red('      LOVE      '));
 printColoredSquare(square, {lineLength: 16});
+console.log();
 
+printColoredSquareSplit(square, {lineLength: 16});
+console.log();
 
+printColoredSquareSplitReversed(square, {lineLength: 16});
+console.log();
 
-//can higlight whole word by using "contains", but higligting closest is tough task
-    /* brute version casn be:
-        01: contains "TRAVEL" ?
-            02: no => contains "TRAVE"
-                03: yes => search for "L"
-                04: no => goto 02
-
-    */
 
 console.log(chalk.grey('--- done ---') + '\n');
 

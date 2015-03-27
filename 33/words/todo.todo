@@ -7,3 +7,11 @@ Thursday
 		- setup completion state on the left
 		- setup addition of codes on the right
 		- use: http://usablica.github.io/intro.js/?ref=producthunt
+
+
+Fun
+	- phrases to enter
+		 - "burger time?"
+		 - 	"will you marry me in vegas"
+		 	:square = higlightSeveral(['will', 'you', 'marry', 'me?', 'cin','vegas'], 'white', square;
+		 	square = higlightSeveral(['me4ta'], 'cyan', square);
