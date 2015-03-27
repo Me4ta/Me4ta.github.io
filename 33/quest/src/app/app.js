@@ -11,7 +11,7 @@ var Socket = EmberSockets.extend({
   host: Ember.ENV.socketServer,
   port: Ember.ENV.port || 31337,
   controllers: ['ask-keen', 'dashboard'],
-  autoConnect: true
+  autoConnect: false
 });
 
 

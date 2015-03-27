@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'hackathon',
+    modulePrefix: 'quest',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -40,10 +40,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     //ENV.locationType = 'hash'; //to support urls with '#' since history API requires server-side setup
-  }
-
-  if (environment === 'demo') {
-    ENV.EmberENV.socketServer = '10.2.1.62'; //Anton's laptop
   }
 
   if (environment === 'home') {
