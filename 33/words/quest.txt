@@ -64,8 +64,6 @@ web app at me4ta.me/33/quest
     (08) KOOB   (16) CARS   (24) VGNI   (32) SAGE
                                         (33) EVOL
 
-
-
 33-levels
 
 level names with completion state on the left:
@@ -79,5 +77,27 @@ enter code box at the bottom with "Next" button:
 
 codes are getting built into square after each level
 progress is logged via socket.io, so I can see where she is
+
+
+1) собрать пазл (небольшой), перевернуть :)
+2) на однойиз кучи бумажек
+3) take some "rest"
+4) кубики
+5) слепить единорожков
+6) сделать монстров
+7) доставка пиццы (на дне коробки) 
+...
+8) 8
+9) поиск дома
+10) на дне чего-то, что выпить?
+11) заморозить бутылку )пусть размораживает)
+12) за одним из стикеров
+13) on green card (ENAKF)
+14) Слепить единорога и она должна слепить 3 животных 
+15) Фотку Фиби с рогом
+
+33) поехать на диабло to find there your “Love”?
+
+
 
 

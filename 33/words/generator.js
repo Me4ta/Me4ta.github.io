@@ -231,8 +231,10 @@ console.log();
 // });
 
 var square = coloredSquare;
-square = higlightSeveral(['will', 'you', 'marry', 'me?'], 'white', square);
-square = higlightSeveral(['Касялька'], 'cyan', square);
+//square = higlightSeveral(['will', 'you', 'marry', 'me?'], 'white', square);
+square = higlightSeveral(['coffee'], 'cyan', square);
+square = higlightSeveral([''], 'magenta', square);
+//square = higlightSeveral(['akimova'], 'red', square);
 //square = higlightSeveral(['cin', 'vegas'], 'cyan', square);
 //square = higlightSeveral([''], 'red', square);
 
