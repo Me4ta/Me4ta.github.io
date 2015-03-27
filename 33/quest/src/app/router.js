@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('ask-keen');
+  this.route('quest');
 });
 
 export default Router;

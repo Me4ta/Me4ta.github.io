@@ -4,10 +4,8 @@ export default Ember.ObjectController.extend({
   code:'',
 
   actions: {
-    submitQuestion: function() {
-      //todo retuta: show email box
-      this.set('isQuestionSubmitted', true);
-      this.socket.emit('new-question-posted', {userId: 1234, question: this.get('questionAsked')});
+    submitCode: function() {
+      console.log(this.get('code'));
     },
     onInputChange: function() {
       //this.set('code', '1');
