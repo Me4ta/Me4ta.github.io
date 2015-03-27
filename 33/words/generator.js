@@ -39,7 +39,7 @@ var testWordsAreInSquare = function(words, square) {
         var failed = false;
 
         higlightWord(word, 'white', square, function(notHiglightedWord, msg){
-            log.fail(notHiglightedWord);
+            log.fail(notHiglightedWord + chalk.grey(' is not higligted'));
             failed = true;
             allOk = false;
         });
@@ -94,6 +94,7 @@ var higlightWord = function(wordToHiglight, color, squareOfWords, errorCallback)
 
         highlightedCount = wordToHiglight.length;
     } else { //if can't be higlighted as a whole search through
+        log.fail('  ' +chalk.blue(wordToHiglight) + ' is not whole');
         var wordToHiglightArray = wordToHiglight.toUpperCase().split('');
         var currentLetter = wordToHiglightArray.shift();
 
@@ -145,22 +146,33 @@ var printColoredSquare = function(square, options){
 }
 
 //todo: write tests verifying that it's able to find all words in a square
-var words = [
+var wordsToCheck = [
     'Phoebe', 'Wallie', 'Chandler', 'Baby', 'Bike', 'Me4ta', 'Restuta', 'Racing',
     'Will', 'You', 'Marry', 'Me', 'California', '8', 'Sex', 'Music', 'Time',
     'Together', 'Sunset', 'Ocean', 'Coffee', 'Hue', 'Wine', 'Morning', 
-    'Касялька', 'BayArea', 'Talks', 'Travel','Vegas', 'Respect', 'Books', 'Unicorns'
+    'Касялька', 'USA', 'Talks', 'Travel','Vegas', 'Respect', 'Books', 'Unicorns'
 ]; // + love
 
-//var coloredSquare = createColoredSquareFromWords(words);
+var words = [
+    'Chan', 'Phoebe', 'Wallie', 
+    'dler', '8','Bike', 'Travel', 
+    'Me4ta', 'Will', 'Coffee', 'restuta',
+    'You', 'Baby','Wine', 'To',  
+    'Sex', 'Music', 'gether', 'Marry','Respect', 
+    'Ti', 'Касялька', 'Unicorns', 
+    'books','racing','Vegas','me'
+]; // + love
+
+
+var coloredSquare = createColoredSquareFromWords(words);
 //var coloredSquare = createColoredSquareFromWords(_.shuffle(words));
-var coloredSquare = createSquareAndSuffle(_.shuffle(words));
+//var coloredSquare = createSquareAndSuffle(_.shuffle(words));
 //var coloredSquare = createColoredSquareFromWords(['PHOEBEWALLIECHANDLERBAYIKEME4TARESTUTARCINGLOVEILYOUMRECFORNIA8SEXICTGETHERNAFEEGКАСЯЛЬКАKSPECT']);
 
 
-testWordsCount(words);
+testWordsCount(wordsToCheck);
 testCharsCount(coloredSquare);
-testWordsAreInSquare(words, coloredSquare);
+testWordsAreInSquare(wordsToCheck, coloredSquare);
 console.log();
 
 //higlight all one by one
@@ -173,8 +185,9 @@ console.log();
 //     console.log();  
 // });
 
-var square = higlightSeveral(['will', 'you', 'marry', 'me'], 'white', coloredSquare);
-square = higlightWord('morning', 'cyan', square);
+var square = coloredSquare;
+square = higlightSeveral(['will', 'you', 'marry', 'sme'], 'white', square);
+//square = higlightSeveral(['tttttogether'], 'cyan', square);
 printColoredSquare(square, {lineLength: 16});
 
 
