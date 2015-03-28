@@ -35,8 +35,9 @@ $sidebar-width: 220px;
 
     position: absolute;
     width: $sidebar-width;
-    background-color: #2f4050;
+    background-color: #fafafa;
     border-color: #2f4050;
+    border-right: 1px solid rgba(0,0,0,0.07);
     height: 100%;
   }
 
@@ -202,6 +203,34 @@ $sidebar-width: 220px;
     width: 167px;
     margin-left: -15px;
     margin-top: 40px;
+  }
+}
+
+//sidebar
+.progress-list {
+  padding: 10px;
+  transition: all 0.5s;
+  li {
+    opacity: 0.5;
+    text-decoration: line-through;
+
+    &.active,
+    &.caption {
+      color: #364149;
+      opacity: 1;
+      text-decoration: none;
+
+      .fa {
+        opacity: 0;
+      }
+    }
+
+    &.divider {
+      height: 1px;
+      margin: 7px 0;
+      overflow: hidden;
+      background: rgba(0,0,0,0.07);
+    }
   }
 }
 

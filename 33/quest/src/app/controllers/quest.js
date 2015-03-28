@@ -1,18 +1,22 @@
 import Ember from 'ember';
 
+var codes = [
+  {level: 0, code: 'TEST'}
+];
+
 export default Ember.ObjectController.extend({
-  code:'',
+  code: '',
 
   _init: function() {
     console.log('quest controller');
-
-    console.log('');
   }.on('init'),
 
   actions: {
     submitCode: function() {
       console.log(this.get('code'));
       console.log(this.get('model').id);
+      
+
     },
     onInputChange: function() {
       //this.set('code', '1');

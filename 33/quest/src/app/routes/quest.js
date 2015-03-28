@@ -18,7 +18,6 @@ export default Ember.Route.extend({
         return recordsArray[0];
       } else {
         throw 'There multiple quests found, clear local storage and start over.';
-
       }
     });
 

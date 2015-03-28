@@ -14,7 +14,7 @@ Thursday
 				- if same: continue
 				- else: redirect
 			- in quest controller maintain list of finsihed steps, render only up to current step
-			- 
+			- also render codes upt to current
 
 
 Friday

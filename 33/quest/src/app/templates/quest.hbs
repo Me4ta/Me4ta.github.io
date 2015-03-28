@@ -1,6 +1,11 @@
 <div class="quest-content">
     <nav class="left-sidebar">
-        left sidebar
+        <ul class="list-unstyled progress-list">
+            <li class="text-center caption">Progress</li>
+            <li class="divider"></li>
+            <li>{{fa-icon "check" classNames="green"}} 0. Intro</li>
+            <li class="active">{{fa-icon "check" classNames="green"}} 1. Собрать пазл</li>
+        </ul>
     </nav>
     <div class="content-wrapper">
         <div class="row level-content">
@@ -23,20 +28,18 @@
                 </div>
 
 
-
                 level content
               {{outlet}}
             </div>
         </div>
-        <div class="row next-level-controls" style="background-color: lightpink;">
+        <div class="row next-level-controls" style="background-color: #fafafa;">
             <div class="col-sm-offset-3 col-sm-6 col-md-6 col-lg-offset-4 col-lg-3">
-                <div>button content</div>
                 <div class="input-group input-group-lg code">
                     <div class="input-group-addon">#</div>
                   {{input-with-on-change class="form-control" type="text" maxlength="4" value=code
                   placeholder="code" onInputChange="onInputChange" startedTyping="startedTyping"}}
                     <span class="input-group-btn">
-                  <button {{bind-attr class=":btn :btn-success"}} type="submit" {{action 'submitCode'}}>Next</button>
+                  <button {{bind-attr class=":btn :btn-success code:enabled:disabled"}} type="submit" {{action 'submitCode'}}>Next</button>
             </span>
                 </div>
             </div>
