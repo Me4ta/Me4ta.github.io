@@ -2,7 +2,11 @@
 
   i {
     font-style: normal;
-    color: deepskyblue;
+    opacity: 0;
+
+    &.visible {
+      opacity: 0.5;
+    }
   }
 
   font-family: 'Cousine', monospace;
@@ -27,9 +31,9 @@
   top: 0;
   transition: all 0.5s;
 
-  & * {
-    transition: all 0.5s;
-  }
+//  & * {
+//    transition: all 0.5s;
+//  }
 
   &:before {
     content: '';
@@ -42,8 +46,9 @@
   p {
     padding: 0;
     margin: 0;
-    opacity: 0.5;
   }
+
+
 
   .inner-wrapper {
     vertical-align: middle;

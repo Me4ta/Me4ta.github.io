@@ -4,35 +4,20 @@
             <li class="text-center caption">Progress</li>
             <li class="divider"></li>
             {{#each level in finishedLevels}}
-                <li>{{fa-icon "check" classNames="green"}} {{level.number}}. {{level.name}}</li>
+                <li>{{fa-icon "check" classNames="green"}} <span class="text">{{level.number}}. {{level.name}}</span></li>
             {{/each}}
             <li class="active">{{fa-icon "check" classNames="green"}} {{currentLevel.number}}. {{currentLevel.name}}</li>
         </ul>
     </nav>
     <div class="content-wrapper">
-        <div class="corner-cube">
-            <div id="ribbon"></div>
-            <div id="giftbox" class="inner-wrapper">
-                <div class="ribbon vertical-ribbon"></div>
-                <div class="ribbon horizontal-ribbon"></div>
-                <p>NAHC EOHP AWEB EILL</p>
-                <p>LDEM IBRE RTEK LEVA</p>
-                <p>WAT4 CLLI EFFO SERE</p>
-                <p>ATUT BUOY WYBA TENI</p>
-                <p>XESO RRAM SERY TCEP</p>
-                <p>HTEG ITRE M?EM CISU</p>
-                <p>ЯСАК АКЬЛ CINU 8NRO</p>
-                <p>KOOB CARS VGNI SAGE</p>
-            </div>
-        </div>
+        {{cute-cube currentLevel=currentLevel}}
         <div class="row">
             <div class="col-sm-12">
-                <h3>Level {{currentLevel.number}}</h3>
+                <h3 class="secondary">Level {{currentLevel.number}}</h3>
             </div>
         </div>
         <div class="row level-content">
             <div class="col-sm-12">
-                level content:
               {{outlet}}
             </div>
         </div>
@@ -43,7 +28,7 @@
                   {{input-with-on-change id="input-code" class="form-control" type="text" maxlength="4" value=code
                   placeholder="code" onInputChange="onInputChange" startedTyping="startedTyping"}}
                     <span class="input-group-btn">
-                  <button id="btn-next" {{bind-attr class=":btn :btn-success code:enabled:disabled"}} type="submit" {{action 'submitCode'}}>Next</button>
+                  <button id="btn-next" {{bind-attr class=":btn :btn-success code:enabled:"}} type="submit" {{action 'submitCode'}}>Enter</button>
             </span>
                 </div>
             </div>

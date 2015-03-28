@@ -10,6 +10,7 @@ Router.map(function() {
     this.route('level', {path: 'level/:level_id'}, function() {});
   });
   this.route('intro');
+  this.route('the-end');
 });
 
 export default Router;

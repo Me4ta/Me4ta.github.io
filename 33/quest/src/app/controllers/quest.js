@@ -20,8 +20,10 @@ export default Ember.ObjectController.extend({
   actions: {
     submitCode: function() {
       var enteredCode = this.get('code').toUpperCase();
+      $('.progress-list .active').removeClass('animated bounceIn');
 
-      if (this.get('currentLevel.code') == enteredCode) {
+      //if (this.get('currentLevel.code') == enteredCode) {
+      if (true) {
         var controller = this;
 
         //add to finished levels
@@ -29,10 +31,18 @@ export default Ember.ObjectController.extend({
 
         //save model
         var currentLevel = this.get('model.currentLevelNumber');
+
+        if (currentLevel === 33) {
+          console.log('33?');
+          controller.transitionToRoute('/the-end');
+          return;
+        }
+
         this.set('model.currentLevelNumber', ++currentLevel);
         this.get('model').save().then(function() {
-          controller.transitionToRoute('/level/' + currentLevel);
           $('#input-code').val('');
+          controller.transitionToRoute('/level/' + currentLevel);
+
         });
 
       } else {
@@ -49,7 +59,7 @@ export default Ember.ObjectController.extend({
         .removeClass('btn-danger')
         .addClass('btn-success')
         .removeClass('animated shake')
-        .text('Next');
+        .text('Enter');
     }
   },
 
