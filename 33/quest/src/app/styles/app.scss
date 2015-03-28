@@ -122,6 +122,10 @@ body {
   color: $blue;
 }
 
+.violet {
+  color: $violet;
+}
+
 .position-center {
   position: fixed;;
   top: 30%;
@@ -174,6 +178,64 @@ body {
 .lvl-17 {
   margin-top: 10%;
 }
+
+.lvl-22 {
+  margin-top: 10%;
+}
+
+.lvl-33 {
+  font-size: 50px;
+  margin-top: 10%;
+
+  .heart-1 {
+    color: $violet;
+  }
+  .heart-2 {
+    color: $red;
+    margin-left: -160px;
+  }
+}
+
+.corner-cube.big {
+
+  transition: all 0.5s;
+
+  * {
+    transition: all 0.5s;
+  }
+
+  margin-top: 10%;
+  position: relative;
+
+  font-size: 40px;
+
+  .love {
+    color: $red;
+    opacity: 0.5;
+  }
+
+  i {
+    color: $blue;
+    opacity: 0.8;
+
+
+//    -webkit-animation-name: higlight;
+//    -webkit-animation-duration: 4s;
+  }
+}
+
+
+//@keyframes higlight {
+//  0%   {
+//    opacity: 0;
+//    color: white;
+//
+//  }
+//  100% {
+//    opacity: 1;
+//    color: $blue;
+//  }
+//}
 
 
 
