@@ -23,7 +23,7 @@ module.exports = function(environment) {
   };
 
   ENV.contentSecurityPolicy = {
-    'default-src': "none",
+    'default-src': "*",
     'script-src': "*", // Allow scripts from https://cdn.mxpnl.com
     'font-src': "*", // Allow fonts to be loaded from http://fonts.gstatic.com
     'connect-src': "*", // Allow data (ajax/websocket) from api.mixpanel.com and custom-api.local
