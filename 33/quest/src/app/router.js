@@ -6,7 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('quest', {path: '/'},  function() {});
+  this.resource('quest', {path: '/'},  function() {
+    this.route('level', {path: 'level/:level_id'}, function() {});
+  });
   this.route('intro');
 });
 
