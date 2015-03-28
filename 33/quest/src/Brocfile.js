@@ -42,4 +42,6 @@ app.import('vendor/socket.io.js');
 app.import('bower_components/ember-sockets/dist/ember-sockets.js');
 app.import('bower_components/ember-localstorage-adapter/localstorage_adapter.js');
 
+app.import('bower_components/animate.css/animate.min.css');
+
 module.exports = app.toTree(bootstrapFonts);

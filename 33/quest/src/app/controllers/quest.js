@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import _ from "npm:lodash";
 
 var codes = [
   {level: 0, code: 'TEST'}
@@ -9,17 +10,30 @@ export default Ember.ObjectController.extend({
 
   _init: function() {
     console.log('quest controller');
+
   }.on('init'),
 
   actions: {
     submitCode: function() {
-      console.log(this.get('code'));
-      console.log(this.get('model').id);
-      
+      var enteredCode = this.get('code').toUpperCase();
+
+      if (_.find(codes, {code: enteredCode})) {
+        console.log('code found, transition to level next');
+      } else {
+        $('#btn-next')
+          .removeClass('btn-success')
+          .addClass('btn-danger')
+          .addClass('animated shake')
+          .text('Nope');
+      }
 
     },
     onInputChange: function() {
-      //this.set('code', '1');
+      $('#btn-next')
+        .removeClass('btn-danger')
+        .addClass('btn-success')
+        .removeClass('animated shake')
+        .text('Next');
     }
   },
 
