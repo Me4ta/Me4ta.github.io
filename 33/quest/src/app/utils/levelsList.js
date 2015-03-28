@@ -3,8 +3,9 @@ import Ember from 'ember';
 export default Ember.A([
   {number: 0, name: 'Intro', code: 'TEST'},
 
-  {number: 1, name: 'First', code: 'NAHC'},
-  {number: 2, name: 'First', code: 'LDEM'},
+  {number: 1, name: 'Puzzle', code: 'NAHC'},
+  {number: 2, name: 'Go find them, tiger', code: 'LDEM'},
+
   {number: 3, name: 'First', code: 'WAT4'},
   {number: 4, name: 'First', code: 'ATUT'},
   {number: 5, name: 'First', code: 'XESO'},
