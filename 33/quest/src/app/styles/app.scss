@@ -1,6 +1,7 @@
 $green: #18BC9C;
 $red: #F04D4D;
 $blue: deepskyblue;
+$violet: blueviolet;
 $sidebar-width: 260px;
 
 @import 'intro';
@@ -168,6 +169,10 @@ body {
   img {
     height: 500px;
   }
+}
+
+.lvl-17 {
+  margin-top: 10%;
 }
 
 

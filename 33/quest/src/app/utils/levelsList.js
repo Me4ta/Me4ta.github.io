@@ -17,12 +17,13 @@ export default Ember.A([
   {number: 10, name: 'She is an alien', code: 'IBRE'},
   {number: 11, name: 'Eleveeen, Scotland!!!', code: 'CLLI'},
   {number: 12, name: 'Todo', code: 'BUOY'},
-  {number: 13, name: 'First', code: 'RRAM'},
-  {number: 14, name: 'First', code: 'ITRE'},
-  {number: 15, name: 'First', code: 'АКЬЛ'},
-  {number: 16, name: 'First', code: 'CARS'},
+  {number: 13, name: 'Just like grass', code: 'RRAM'},
+  {number: 14, name: 'Programming classic', code: 'ITRE'},
 
-  {number: 17, name: 'First', code: 'AWEB'},
+  {number: 15, name: 'It\'s math, bitches!', code: 'АКЬЛ'},
+  {number: 16, name: 'Oh no, not again!', code: 'CARS'},
+
+  {number: 17, name: 'All the places', code: 'AWEB'},
   {number: 18, name: 'First', code: 'RTEK'},
   {number: 19, name: 'First', code: 'EFFO'},
   {number: 20, name: 'First', code: 'WYBA'},
