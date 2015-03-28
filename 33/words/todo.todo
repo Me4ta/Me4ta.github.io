@@ -9,6 +9,14 @@ Thursday
 		- use: http://usablica.github.io/intro.js/?ref=producthunt
 		- notifications to Slack channel + twitter
 		- mb form to sumbit results? (sent to slack) 
+		- when /quest/level/id is opened
+			- check model.currentLevel
+				- if same: continue
+				- else: redirect
+			- in quest controller maintain list of finsihed steps, render only up to current step
+			- 
+
+
 Friday
 	+- купить
 		+- паззл
