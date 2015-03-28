@@ -3,6 +3,7 @@ Thursday
 
 	- web site
 		+- setup skeleton
+		!- fix bug when I am not transitioned to level when going to root
 		- setup next question flow
 		- setup completion state on the left
 		- setup addition of codes on the right

@@ -2,24 +2,56 @@ import Ember from 'ember';
 import _ from 'npm:lodash';
 
 export default Ember.Route.extend({
-  levelId: null,
+  levelNumber: null,
 
   model: function(params) {
-    this.levelId = parseInt(params.level_id);
+    var self = this;
 
-
-    if (!this.levelId || !_.isNumber(this.levelId)) {
-        throw 'Invalid level: ' + this.levelId;
+    if ((!self.levelNumber && self.levelNumber !== 0) || !_.isNumber(self.levelNumber)) {
+      throw 'Invalid level: ' + self.levelNumber;
     }
 
-    if (this.levelId <=0 || this.levelId > 33) {
-      throw 'Invalid level number: ' + this.levelId;
+    if (self.levelNumber < 0 || self.levelNumber > 33) {
+      throw 'Invalid level number: ' + self.levelNumber;
     }
 
     return {};
   },
 
+  beforeModel: function(transition) {
+
+    this.levelNumber = parseInt(transition.params['quest.level'].level_id);
+
+    var self = this;
+
+    this.store.find('quest').then(function(records) {
+      var recordsArray = records.toArray();
+
+      if (recordsArray.length === 1) {
+        return recordsArray[0];
+      } else {
+        throw 'There multiple quests found, clear local storage and start over.';
+      }
+    }).then(function(quest) {
+
+      if ((!self.levelNumber && self.levelNumber !== 0) || !_.isNumber(self.levelNumber)) {
+        throw 'Invalid level: ' + self.levelNumber;
+      }
+
+      if (self.levelNumber < 0 || self.levelNumber > 33) {
+        throw 'Invalid level number: ' + self.levelNumber;
+      }
+
+      if (quest.get('currentLevelNumber') !== self.levelNumber) {
+        self.transitionTo('quest.level', quest.get('currentLevelNumber'));
+
+      }
+    });
+  },
+
+
   renderTemplate: function() {
-    this.render('quest/levels/' + this.levelId);
+
+    this.render('quest/levels/' + this.levelNumber);
   }
 });

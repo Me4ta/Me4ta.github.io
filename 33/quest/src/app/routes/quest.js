@@ -1,4 +1,6 @@
 import Ember from 'ember';
+import levels from '../utils/levelsList';
+import _ from 'npm:lodash';
 
 export default Ember.Route.extend({
   model: function(params) {
@@ -8,7 +10,6 @@ export default Ember.Route.extend({
     //if there is 1 quest - use it, if none - create first one, if more than one - throw error
 
     var quest = this.store.find('quest').then(function(records) {
-
       var recordsArray = records.toArray();
 
       if (!recordsArray || recordsArray.length === 0) {
@@ -22,6 +23,17 @@ export default Ember.Route.extend({
     });
 
     return quest;
-  }
+  },
 
+  setupController: function(controller, model) {
+    controller.set('model', model);
+
+    var currentLevelNumber = model.get('currentLevelNumber');
+
+    var finishedLevels = _.filter(levels, function(level) {
+      return level.number < currentLevelNumber;
+    });
+
+    controller.set('finishedLevels', finishedLevels);
+  }
 });
