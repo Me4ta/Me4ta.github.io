@@ -5,11 +5,14 @@ export default Ember.ObjectController.extend({
 
   _init: function() {
     console.log('quest controller');
+
+    console.log('');
   }.on('init'),
 
   actions: {
     submitCode: function() {
       console.log(this.get('code'));
+      console.log(this.get('model').id);
     },
     onInputChange: function() {
       //this.set('code', '1');

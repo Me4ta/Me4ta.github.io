@@ -40,5 +40,6 @@ var bootstrapFonts = pickFiles('bower_components/bootstrap-sass-official/assets/
 app.import('vendor/socket.io.js');
 //ember-sockets ember integration
 app.import('bower_components/ember-sockets/dist/ember-sockets.js');
+app.import('bower_components/ember-localstorage-adapter/localstorage_adapter.js');
 
 module.exports = app.toTree(bootstrapFonts);
