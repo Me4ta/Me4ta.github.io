@@ -14,9 +14,9 @@ export default Ember.A([
   {number: 8, name: '3 + 3 = 8?', code: 'KOOB'},
 
   {number: 9, name: 'Finally you need a map', code: 'EOHP'},
-  {number: 10, name: 'First', code: 'IBRE'},
-  {number: 11, name: 'First', code: 'CLLI'},
-  {number: 12, name: 'First', code: 'BUOY'},
+  {number: 10, name: 'She is an alien', code: 'IBRE'},
+  {number: 11, name: 'Eleveeen, Scotland!!!', code: 'CLLI'},
+  {number: 12, name: 'Todo', code: 'BUOY'},
   {number: 13, name: 'First', code: 'RRAM'},
   {number: 14, name: 'First', code: 'ITRE'},
   {number: 15, name: 'First', code: 'АКЬЛ'},

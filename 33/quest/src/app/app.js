@@ -3,6 +3,13 @@ import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
 import config from './config/environment';
 
+import slack from './utils/slack';
+
+Ember.onerror = function(error) {
+  console.log(error);
+  slack.sendRed('Ember ERROR :(', error || '<no error info>');
+};
+
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
 var EmberSockets = window.EmberSockets;

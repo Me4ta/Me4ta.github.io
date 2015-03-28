@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import _ from 'npm:lodash';
+import slack from '../../utils/slack';
 
 export default Ember.Route.extend({
   levelNumber: null,
@@ -51,6 +52,7 @@ export default Ember.Route.extend({
 
 
   renderTemplate: function() {
+    slack.send('Level ' + this.levelNumber + ' opened');
 
     this.render('quest/levels/' + this.levelNumber);
   }

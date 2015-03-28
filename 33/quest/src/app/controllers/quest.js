@@ -1,10 +1,7 @@
 import Ember from 'ember';
 import _ from 'npm:lodash';
 import levels from '../utils/levelsList';
-
-var codes = [
-  {level: 0, code: 'TEST'}
-];
+import slack from '../utils/slack';
 
 export default Ember.ObjectController.extend({
   code: '',
@@ -18,14 +15,21 @@ export default Ember.ObjectController.extend({
 
   }.on('init'),
 
+  levelContextToString: function() {
+    return 'Level ' + this.get('currentLevel.number') + ', ' + this.get('currentLevel.name') + '\n';
+  },
+
   actions: {
     submitCode: function() {
       var enteredCode = this.get('code').toUpperCase();
+
       $('.progress-list .active').removeClass('animated bounceIn');
 
       if (this.get('currentLevel.code') == enteredCode) {
       //if (true) {
         var controller = this;
+
+        slack.sendGreen(this.levelContextToString(), 'Entered valid code: ' + enteredCode);
 
         //add to finished levels
         controller.get('finishedLevels').addObject(controller.get('currentLevel'));
@@ -47,6 +51,8 @@ export default Ember.ObjectController.extend({
         });
 
       } else {
+        slack.sendLightRed(this.levelContextToString(), 'Entered invalid code: ' + enteredCode);
+
         $('#btn-next')
           .removeClass('btn-success')
           .addClass('btn-danger')
