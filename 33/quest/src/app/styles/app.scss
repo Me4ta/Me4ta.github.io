@@ -1,3 +1,6 @@
+@import 'intro';
+
+
 html, body, .ember-application,
 .ember-application > .ember-view,
 .main-content {
@@ -19,6 +22,7 @@ body {
 }
 
 $green: #18BC9C;
+$red: #F04D4D;
 $sidebar-width: 220px;
 
 .main-content {
@@ -126,6 +130,9 @@ $sidebar-width: 220px;
 .green {
   color: $green;
 }
+.red {
+  color: $red;
+}
 
 .position-center {
   position: fixed;;
@@ -149,7 +156,7 @@ $sidebar-width: 220px;
   content:"";
   height:24px;
   width:100%;
-  background-color:#F04D4D;
+  background-color:$red;
   display:block;
   position:absolute;
   top:18px;
@@ -161,7 +168,7 @@ $sidebar-width: 220px;
   content:"";
   height:100%;
   width:24px;
-  background-color:#F04D4D;
+  background-color:$red;
   display:block;
   margin:auto;
   box-shadow:0 0 5px 0px rgba(0,0,0,0.4);

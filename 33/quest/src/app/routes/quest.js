@@ -11,10 +11,10 @@ export default Ember.Route.extend({
 
       var recordsArray = records.toArray();
 
-      if (!recordsArray || recordsArray.length == 0) {
+      if (!recordsArray || recordsArray.length === 0) {
         quest = self.store.createRecord('quest');
         return quest.save();
-      } else if (recordsArray.length == 1) {
+      } else if (recordsArray.length === 1) {
         return recordsArray[0];
       } else {
         throw 'There multiple quests found, clear local storage and start over.';
