@@ -13,7 +13,8 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "bootstrap-sass-official": "3.3.3",
-    "ember-sockets": "~0.6.10"
+    "ember-sockets": "~0.6.10",
+    "ember-localstorage-adapter": "~0.5.2"
   },
   "resolutions": {
     "ember": "1.10.0",
