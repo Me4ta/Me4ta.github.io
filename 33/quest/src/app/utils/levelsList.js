@@ -6,9 +6,9 @@ export default Ember.A([
   {number: 1, name: 'Puzzle', code: 'NAHC'},
   {number: 2, name: 'Go find them, tiger', code: 'LDEM'},
 
-  {number: 3, name: 'First', code: 'WAT4'},
-  {number: 4, name: 'First', code: 'ATUT'},
-  {number: 5, name: 'First', code: 'XESO'},
+  {number: 3, name: 'Ice? Nice!', code: 'WAT4'},
+  {number: 4, name: 'Cubes are handmade', code: 'ATUT'},
+  {number: 5, name: 'Evey Quester needs a map', code: 'XESO'},
   {number: 6, name: 'First', code: 'HTEG'},
   {number: 7, name: 'First', code: 'ЯСАК'},
   {number: 8, name: 'First', code: 'KOOB'},

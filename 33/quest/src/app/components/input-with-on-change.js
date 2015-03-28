@@ -8,6 +8,10 @@ export default Ember.TextField.extend({
   fewCharacters: 5, //how many characters we call a "few" after typing this many "typedFewCharacters" will be set to true
   typedFewCharacters: false,
 
+  becomeFocused: function() {
+    this.$().focus();
+  }.on('didInsertElement'),
+
   _onInput: function() {
 
     var value = this.get('value');
