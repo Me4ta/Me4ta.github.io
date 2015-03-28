@@ -10,6 +10,14 @@ export default Ember.Component.extend({
 
   didInsertElement: function() {
     this._updateVisible();
+
+
+    //make button clickable by enter
+    $("#input-code").keyup(function(event){
+      if(event.keyCode == 13){
+        $("#btn-next").click();
+      }
+    });
   },
 
   _updateVisible: function() {

@@ -28,7 +28,7 @@
                   {{input-with-on-change id="input-code" class="form-control" type="text" maxlength="4" value=code
                   placeholder="code" onInputChange="onInputChange" startedTyping="startedTyping"}}
                     <span class="input-group-btn">
-                  <button id="btn-next" {{bind-attr class=":btn :btn-success code:enabled:"}} type="submit" {{action 'submitCode'}}>Enter</button>
+                  <button id="btn-next" {{bind-attr class=":btn :btn-success code:enabled:disabled"}} type="submit" {{action 'submitCode'}}>Enter</button>
             </span>
                 </div>
             </div>

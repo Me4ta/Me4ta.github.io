@@ -15,6 +15,7 @@ export default Ember.ObjectController.extend({
   }.property('model.currentLevelNumber'),
 
   _init: function() {
+
   }.on('init'),
 
   actions: {
@@ -22,8 +23,8 @@ export default Ember.ObjectController.extend({
       var enteredCode = this.get('code').toUpperCase();
       $('.progress-list .active').removeClass('animated bounceIn');
 
-      //if (this.get('currentLevel.code') == enteredCode) {
-      if (true) {
+      if (this.get('currentLevel.code') == enteredCode) {
+      //if (true) {
         var controller = this;
 
         //add to finished levels
