@@ -38,6 +38,11 @@ var bootstrapFonts = pickFiles('bower_components/bootstrap-sass-official/assets/
 
 //ember-sockets client
 app.import('vendor/socket.io.js');
+
+//flipclock.js
+app.import('vendor/flipclockjs/flipclock.min.js');
+app.import('vendor/flipclockjs/flipclock.css');
+
 //ember-sockets ember integration
 app.import('bower_components/ember-sockets/dist/ember-sockets.js');
 app.import('bower_components/ember-localstorage-adapter/localstorage_adapter.js');

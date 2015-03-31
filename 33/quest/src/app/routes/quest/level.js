@@ -52,6 +52,9 @@ export default Ember.Route.extend({
 
 
   renderTemplate: function() {
+
+
+
     slack.send('Level ' + this.levelNumber + ' opened');
 
     this.render('quest/levels/' + this.levelNumber);

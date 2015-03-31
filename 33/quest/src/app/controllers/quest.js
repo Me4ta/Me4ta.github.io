@@ -25,8 +25,8 @@ export default Ember.ObjectController.extend({
 
       $('.progress-list .active').removeClass('animated bounceIn');
 
-      //if (this.get('currentLevel.code') == enteredCode) {
-      if (true) {
+      if (this.get('currentLevel.code') == enteredCode) {
+      //if (true) {
         var controller = this;
 
         slack.sendGreen(this.levelContextToString(), 'Entered valid code: ' + enteredCode);
@@ -37,8 +37,13 @@ export default Ember.ObjectController.extend({
         //save model
         var currentLevel = this.get('model.currentLevelNumber');
 
+        if (currentLevel === 32) {
+            slack.sendViolet(this.levelContextToString(), 'Almost There!');
+        }
+
         if (currentLevel === 33) {
           console.log('33?');
+          slack.sendViolet('Happy 33th Birthday!', 'The End of Quest and The Beginning of ');
           controller.transitionToRoute('/the-end');
           return;
         }
