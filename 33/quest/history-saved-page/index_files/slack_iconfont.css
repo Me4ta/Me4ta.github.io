@@ -1,0 +1,27 @@
+@font-face{font-family:'Slack';
+src:url(/index_files/fonts/slack-icons.eot);
+src:url(/index_files/fonts/slack-icons.eot?#iefix) format('embedded-opentype'),
+url(/index_files/fonts/slack-icons.woff) format('woff'),
+url(/index_files/fonts/slack-icons.ttf) format('truetype'),
+url(/index_files/fonts/slack-icons.svg#Slack) format('svg');font-style:normal;font-weight:400}
+.ts_icon:before{font-family:'Slack';font-size:20px;font-style:normal;display:inline-block}
+.ts_icon_star_o:before{content:'\E001'}
+.ts_icon_user:before{content:'\E003'}
+.ts_icon_comment:before{content:'\E005'}
+.ts_icon_channel_info:before{content:'\E008'}
+.ts_icon_mentions:before{content:'\E009'}
+.ts_icon_search:before{content:'\E010'}
+.ts_icon_cloud_download:before{content:'\E019'}
+.ts_icon_lock:before{content:'\E029'}
+.ts_icon_paper_plane:before{content:'\E041'}
+.ts_icon_thumb_tack:before{content:'\E044'}
+.ts_icon_all_files:before{content:'\E059'}
+.ts_icon_ellipsis:before{content:'\E067'}
+.ts_icon_sign_out:before{content:'\E083'}
+.ts_icon_all_files_alt:before{content:'\E107'}
+.ts_icon_exclamation_circle:before{content:'\E210'}
+.ts_icon_question_circle:before{content:'\E211'}
+.ts_icon_chevron_medium_left:before{content:'\E255'}
+.ts_icon_times:before{content:'\E278'}
+.ts_icon_plus:before{content:'\E279'}
+.ts_icon_times_small:before{content:'\E294'}
