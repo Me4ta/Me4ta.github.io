@@ -3,6 +3,14 @@ import levels from '../utils/levelsList';
 import _ from 'npm:lodash';
 
 export default Ember.Route.extend({
+
+  beforeModel: function(transition) {
+    console.log(transition.targetName);
+    if (transition.targetName  !== 'quest.level.index') {
+      this.replaceWith('intro');
+    }
+  },
+
   model: function(params) {
 
     var self = this;

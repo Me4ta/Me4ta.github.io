@@ -23,9 +23,14 @@ export default Ember.Component.extend({
   _updateVisible: function() {
     var currentLevel = this.get('currentLevel');
 
-    if (currentLevel && currentLevel.number > 0 && currentLevel.number < 33) {
-      for (var i = 1; i < currentLevel.number; i++) {
-        this.$('#code-' + i).addClass('visible');
+    if (currentLevel && currentLevel.number > 0 && currentLevel.number <= 33) {
+
+      for (var i = 1; i <= 33; i++) {
+        if (i < currentLevel.number) {
+          this.$('#code-' + i).addClass('visible');
+        } else {
+          this.$('#code-' + i).removeClass('visible');
+        }
       }
     }
   }

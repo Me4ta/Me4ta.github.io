@@ -3,14 +3,14 @@
         <ul class="list-unstyled progress-list">
             <li class="text-center caption">Progress</li>
             <li class="divider"></li>
-            {{#each level in finishedLevels}}
-                <li>{{fa-icon "check" classNames="green"}} <span class="text">{{level.number}}. {{level.name}}</span></li>
-            {{/each}}
+          {{#each level in finishedLevels}}
+              <li>{{fa-icon "check" classNames="green"}} <span class="text">{{level.number}}. {{level.name}}</span></li>
+          {{/each}}
             <li class="active">{{fa-icon "check" classNames="green"}} {{currentLevel.number}}. {{currentLevel.name}}</li>
         </ul>
     </nav>
     <div class="content-wrapper">
-        {{cute-cube currentLevel=currentLevel}}
+      {{cute-cube currentLevel=currentLevel}}
         <div class="row">
             <div class="col-sm-12">
                 <h3 class="secondary">Level {{currentLevel.number}}, {{currentLevel.name}}</h3>
@@ -26,10 +26,16 @@
                 <div class="input-group input-group-lg code">
                     <div class="input-group-addon">#</div>
                   {{input-with-on-change id="input-code" class="form-control" type="text" maxlength="4" value=code
-                  placeholder="code" onInputChange="onInputChange" startedTyping="startedTyping"}}
+                  placeholder="code" onInputChange="onInputChange" startedTyping="startedTyping"
+                  inputThresholdMs=1000 onChangeWithDelay="onInputChangeWithDelay"}}
                     <span class="input-group-btn">
+                          <button id="btn-next" {{bind-attr class=":btn :btn-success code:enabled:disabled"}}
+                                  type="submit" {{action 'submitCode'}}>Enter</button>
 
-                          <button id="btn-next" {{bind-attr class=":btn :btn-success code:enabled:"}} type="submit" {{action 'submitCode'}}>Enter</button>
+                        <button id="btn-prev" {{bind-attr class=":btn :btn-primary firstLevel:disabled:enabled"}} type="submit"
+                          {{action 'prevLevel'}}>&lt;</button>
+                          <button id="btn-skip" {{bind-attr class=":btn :btn-primary"}}
+                                  type="submit" {{action 'skipLevel'}}>&gt;</button>
                   </span>
 
                 </div>
