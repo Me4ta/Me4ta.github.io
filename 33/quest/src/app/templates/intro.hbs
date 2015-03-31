@@ -3,16 +3,15 @@
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
             <div class="page-header">
-                <h1>Введение <small>краткое руководство к прохождению квеста</small></h1>
+                <h1>Квест</h1>
+                <p>В этот знаменательный день, тебе предстоит пройти 33 суровых испытания.</p>
             </div>
 
-            <p>В этот знаменательный день, тебе предстоит пройти 33 суровых испытания.</p>
-
             <div class="text-center">
-              <a href="/level/0" class="btn btn-primary">
+              {{#link-to "quest.level" 0 class="btn btn-primary"}}
                 {{fa-icon 'heart' classNames="red"}}
-                  Start
-              </a>
+                  Ну ок
+              {{/link-to}}
             </div>
         </div>
     </div>

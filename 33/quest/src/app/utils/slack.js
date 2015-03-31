@@ -44,12 +44,12 @@ export default {
   },
 
   _send: function(dataStr) {
-    $.ajax({
-      type: 'POST',
-      url: 'https://hooks.slack.com/services/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',
-      data: dataStr,
-      success: null,
-      dataType: 'json'
-    });
+    //$.ajax({
+    //  type: 'POST',
+    //  url: 'https://hooks.slack.com/services/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',
+    //  data: dataStr,
+    //  success: null,
+    //  dataType: 'json'
+    //});
   }
 };
