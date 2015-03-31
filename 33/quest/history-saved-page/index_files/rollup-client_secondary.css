@@ -589,7 +589,7 @@ to{background-position:-56px 0}
 .screenhero_blue_bg{background-color:#1a9cdb !important}
 #col_messages{margin-left:0;position:relative}
 .collapsible #messages_container{margin-left:0}
-#messages_container{margin-left:220px}
+#messages_container{margin-left:20%}
 #client-ui.flex_pane_showing #messages_container{margin-right:392px}
 @media screen and (min-width:1367px){#client-ui.flex_pane_showing #messages_container{margin-right:442px}
 }
