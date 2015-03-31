@@ -63,6 +63,7 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
+  //ember build -e production -o ../x
   if (environment === 'production') {
     ENV.EmberENV.port = 80;
     ENV.EmberENV.socketServer = 'ask-keen-server.herokuapp.com'; //Anton's laptop
