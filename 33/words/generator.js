@@ -192,8 +192,8 @@ var printColoredSquareSplitReversed = function(square, options){
 //todo: write tests verifying that it's able to find all words in a square
 var wordsToCheck = [
     'Phoebe', 'Wallie', 'Chandler', 'Baby', 'Bike', 'Me4ta', 'Restuta', 'Racing',
-    'Will', 'You', 'Marry', 'Me?', 'California', '8', 'Sex', 'Music', 'Time',
-    'Together', 'Sunset', 'Ocean', 'Coffee', 'Hue', 'Wine', 'Morning', 
+    'Will', 'You', 'Marry', 'Me?', 'California', '8', 'Sex', 'Music', 
+    'Time', 'Together', 'Sunset', 'Ocean', 'Coffee', 'Hue', 'Wine', 'Morning', 
     'Касялька', 'USA', 'Talks', 'Travel','Vegas', 'Respect', 'Books', 'Unicorn'
 ]; // + love
 
@@ -230,25 +230,49 @@ console.log();
 //     console.log();  
 // });
 
-var square = coloredSquare;
-//square = higlightSeveral(['will', 'you', 'marry', 'me?'], 'white', square);
-square = higlightSeveral(['coffee'], 'cyan', square);
-square = higlightSeveral([''], 'magenta', square);
-//square = higlightSeveral(['akimova'], 'red', square);
-//square = higlightSeveral(['cin', 'vegas'], 'cyan', square);
-//square = higlightSeveral([''], 'red', square);
 
-console.log();
-console.log(chalk.red('      LOVE      '));
+// var i = 0;
+// var doEvery = function() {
+//     var currentWord = wordsToCheck[(i == 31 ? (i) : (i++))];
+//     var higlightColor = 'cyan';
+//     var square = coloredSquare;
+
+//     if (_.contains(['will', 'you', 'marry', 'me?'], currentWord.toLowerCase())) {
+//          return;
+//     }
+
+
+//         if (i == 31){
+//             console.log(i);
+//         clearScreen();
+//         square = higlightSeveral(['will', 'you', 'marry', 'me?'], 'magenta', square);    
+//         //return;
+//     } else {
+//         clearScreen();
+//         console.log(currentWord);
+//         square = higlightSeveral([currentWord], higlightColor, square);
+//     }
+
+//     console.log();
+//     console.log(chalk.red('      LOVE      '));
+//     printColoredSquare(square, {lineLength: 16});
+//     console.log();
+// }
+
+ var square = coloredSquare;
+square = higlightSeveral(['coffee', ''], 'magenta', square);    
+square = higlightSeveral(['', 'chandler'], 'cyan', square);    
+
 printColoredSquare(square, {lineLength: 16});
 console.log();
 
-printColoredSquareSplit(square, {lineLength: 16});
-console.log();
+// printColoredSquareSplitReversed(square, {lineLength: 16});
+// console.log();
 
-printColoredSquareSplitReversed(square, {lineLength: 16});
-console.log();
+//console.log(chalk.grey('--- done ---') + '\n');
+//var timer = setInterval(doEvery, 5000);
 
-
-console.log(chalk.grey('--- done ---') + '\n');
+var clearScreen = function(){
+    console.log('\033[2J');
+}
 
