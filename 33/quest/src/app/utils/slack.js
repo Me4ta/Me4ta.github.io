@@ -9,6 +9,10 @@ export default {
     this._sendColored(title, text, '#00BFFF');
   },
 
+  sendOrange: function(title, text) {
+    this._sendColored(title, text, '#F08C2F');
+  },
+
   sendViolet: function(title, text) {
     this._sendColored(title, text, '#8A2BE2');
   },
@@ -40,9 +44,6 @@ export default {
   },
 
   _send: function(dataStr) {
-
-
-
     $.ajax({
       type: 'POST',
       url: 'https://hooks.slack.com/services/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',
