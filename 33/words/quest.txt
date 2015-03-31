@@ -1,0 +1,135 @@
+web app at me4ta.me/33/quest
+
+Ввести код:
+33 уровня
+4 digit completiondes, 33*4 = 132 symbol
+12x11 grid
+
+33 * 4 = 132
+
+32 * 4 = 128
+    16 lines x 8 rows + 4 on top = LOVE 
+
+    gives total of 33x4 = 132
+
+          LOVE
+    CHANPHOEBEWALLIE
+    MEDLERBIKETRAVEL
+    4TAWILLCOFFEERES
+    TUTAYOUBABYWINET
+    OSEXMARRYRESPECT
+    GETHERTIME?MUSIC
+    КАСЯЛЬКАUNICORN8
+    BOOKSRACINGVEGAS
+
+
+
+
+
+           LOVE
+    CHAN PHOE BEWA LLIE
+    MEDL ERBI KETR AVEL
+    4TAW ILLC OFFE ERES
+    TUTA YOUB ABYW INET
+    OSEX MARR YRES PECT
+    GETH ERTI ME?M USIC
+    КАСЯ ЛЬКА UNIC ORN8
+    BOOK SRAC INGV EGAS
+
+
+
+
+
+
+
+
+
+
+
+
+           EVOL
+    NAHC EOHP AWEB EILL
+    LDEM IBRE RTEK LEVA
+    WAT4 CLLI EFFO SERE
+    ATUT BUOY WYBA TENI
+    XESO RRAM SERY TCEP
+    HTEG ITRE M?EM CISU
+    ЯСАК АКЬЛ CINU 8NRO
+    KOOB CARS VGNI SAGE
+
+           
+    NAHC EOHP AWEB EILL
+    LDEM IBRE RTEK LEVA
+    WAT4 CLLI EFFO SERE
+    ATUT BUOY WYBA TENI
+    XESO RRAM SERY TCEP
+    HTEG ITRE M?EM CISU
+    ЯСАК АКЬЛ CINU 8NRO
+    KOOB CARS VGNI SAGE
+
+    
+
+    (01) NAHC   (09) EOHP   (17) AWEB   (25) EILL
+    (02) LDEM   (10) IBRE   (18) RTEK   (26) LEVA
+    (03) WAT4   (11) CLLI   (19) EFFO   (27) SERE
+    (04) ATUT   (12) BUOY   (20) WYBA   (28) TENI
+    (05) XESO   (13) RRAM   (21) SERY   (29) TCEP
+    (06) HTEG   (14) ITRE   (22) M?EM   (30) CISU
+    (07) ЯСАК   (15) АКЬЛ   (23) CINU   (31) 8NRO
+    (08) KOOB   (16) CARS   (24) VGNI   (32) SAGE
+                                        (33) EVOL
+
+33-levels
+
+level names with completion state on the left:
+    ✓ 1: Intro
+    ✓ 2: Do smthing!
+
+arbitrary html in the center with instructions
+
+enter code box at the bottom with "Next" button:
+    #[     ]  next->
+
+- codes are getting built into square after each level
+- progress is logged via socket.io, so I can see where she is
+- store in local storage progress
+- each level (if accessed) have predefined square and progress 
+
+
+1) собрать пазл (небольшой), перевернуть :)
+2) на одной из кучи бумажек
+3) take some "rest"
+4) кубики
+5) слепить единорожков
+6) сделать монстров
+7) доставка пиццы (на дне коробки)  
+8) 8
+9) поиск дома
+10) на дне чего-то, что выпить?
+11) заморозить бутылку )пусть размораживает)
+12) за одним из стикеров
+13) on green card (RRAM)
+15) Фотку Фиби с рогом
+16)
+17)
+18)
+19)
+20)
+21)
+22)
+23)
+24)
+25)
+26)
+27)
+28)
+29)
+30)
+31)
+32) дать ответ на главный вопрос =) (код на кольце)
+
+33) поехать на диабло to find there your “Love”?
+
+
+
+

@@ -1,0 +1,38 @@
+<div class="quest-content">
+    <nav class="left-sidebar">
+        <ul class="list-unstyled progress-list">
+            <li class="text-center caption">Progress</li>
+            <li class="divider"></li>
+            {{#each level in finishedLevels}}
+                <li>{{fa-icon "check" classNames="green"}} <span class="text">{{level.number}}. {{level.name}}</span></li>
+            {{/each}}
+            <li class="active">{{fa-icon "check" classNames="green"}} {{currentLevel.number}}. {{currentLevel.name}}</li>
+        </ul>
+    </nav>
+    <div class="content-wrapper">
+        {{cute-cube currentLevel=currentLevel}}
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="secondary">Level {{currentLevel.number}}, {{currentLevel.name}}</h3>
+            </div>
+        </div>
+        <div class="row level-content">
+            <div class="col-sm-12">
+              {{outlet}}
+            </div>
+        </div>
+        <div class="row next-level-controls">
+            <div class="col-sm-offset-3 col-sm-6 col-md-6 col-lg-offset-4 col-lg-3">
+                <div class="input-group input-group-lg code">
+                    <div class="input-group-addon">#</div>
+                  {{input-with-on-change id="input-code" class="form-control" type="text" maxlength="4" value=code
+                  placeholder="code" onInputChange="onInputChange" startedTyping="startedTyping"}}
+                    <span class="input-group-btn">
+                  <button id="btn-next" {{bind-attr class=":btn :btn-success code:enabled:disabled"}} type="submit" {{action 'submitCode'}}>Enter</button>
+            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
