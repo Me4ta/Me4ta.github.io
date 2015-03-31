@@ -68,6 +68,7 @@ module.exports = function(environment) {
     ENV.EmberENV.port = 80;
     ENV.EmberENV.socketServer = 'ask-keen-server.herokuapp.com'; //Anton's laptop
     ENV.baseURL = '/33/quest/x/'
+    ENV.locationType = 'hash'; //to support urls with '#' since history API requires server-side setup
   }
 
   return ENV;

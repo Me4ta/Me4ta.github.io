@@ -20,13 +20,14 @@ export default Ember.ObjectController.extend({
   },
 
   actions: {
+
     submitCode: function() {
       var enteredCode = this.get('code').toUpperCase();
 
       $('.progress-list .active').removeClass('animated bounceIn');
 
-      if (this.get('currentLevel.code') == enteredCode) {
-      //if (true) {
+      //if (this.get('currentLevel.code') == enteredCode) {
+      if (true) {
         var controller = this;
 
         slack.sendGreen(this.levelContextToString(), 'Entered valid code: ' + enteredCode);
