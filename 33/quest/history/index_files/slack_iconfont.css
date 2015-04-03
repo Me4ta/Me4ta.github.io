@@ -1,9 +1,9 @@
 @font-face{font-family:'Slack';
-src:url(/index_files/fonts/slack-icons.eot);
-src:url(/index_files/fonts/slack-icons.eot?#iefix) format('embedded-opentype'),
-url(/index_files/fonts/slack-icons.woff) format('woff'),
-url(/index_files/fonts/slack-icons.ttf) format('truetype'),
-url(/index_files/fonts/slack-icons.svg#Slack) format('svg');font-style:normal;font-weight:400}
+src:url(fonts/slack-icons.eot);
+src:url(fonts/slack-icons.eot?#iefix) format('embedded-opentype'),
+url(fonts/slack-icons.woff) format('woff'),
+url(fonts/slack-icons.ttf) format('truetype'),
+url(fonts/slack-icons.svg#Slack) format('svg');font-style:normal;font-weight:400}
 .ts_icon:before{font-family:'Slack';font-size:20px;font-style:normal;display:inline-block}
 .ts_icon_star_o:before{content:'\E001'}
 .ts_icon_user:before{content:'\E003'}
