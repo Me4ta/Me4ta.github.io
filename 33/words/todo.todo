@@ -12,11 +12,11 @@ Thursday
 
 	- web site
 		+- setup skeleton
-		!- fix bug when I am not transitioned to level when going to root
+		+!- fix bug when I am not transitioned to level when going to root
 		+- setup next question flow
 		+- setup completion state on the left
 		+- setup addition of codes on the right
-		- use: http://usablica.github.io/intro.js/?ref=producthunt
+		.- use: http://usablica.github.io/intro.js/?ref=producthunt
 		+- notifications to Slack channel + twitter
 		+- mb form to sumbit results? (sent to slack) 
 		+- when /quest/level/id is opened
@@ -92,10 +92,10 @@ Friday
 		+--- 29) найти пингвинов: в красном холодильнике, где еще? (на этой фотке 3 холодильника)
 		+--- 30) пингвины: , отсортировать от младшего к старшему, первые 4 по алфавиту
 		+--- 31) простое четверостишье, чтобы там было слово "единорог" и "33": затвитить
-		-- 32) Учитель наруто?:
-			32.5) приехать наместо где мы познакомились, показать координаты со словом жду во столько-то
+		+-- 32) Учитель наруто?:
+			+32.5) приехать наместо где мы познакомились, показать координаты со словом жду во столько-то
 
-		-- 33) дать ответ на главный вопрос =): 
+		+-- 33) дать ответ на главный вопрос =): 
 
 
 
