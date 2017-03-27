@@ -5,7 +5,7 @@ import 'bootstrap/scss/bootstrap.scss'
 import 'style/main.scss'
 
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import Index from 'views/Index.view.jsx'
 import TimelineView from 'views/Timeline.view.jsx'
 

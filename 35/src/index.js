@@ -1,5 +1,5 @@
-import 'regenerator-runtime/runtime'
 import 'react-hot-loader/patch'
+import 'regenerator-runtime/runtime'
 
 import React from 'react'
 import { render } from 'react-dom'

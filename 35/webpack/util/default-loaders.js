@@ -2,7 +2,7 @@ import config from '../../config/config'
 
 export default [{
 	test: /\.jsx?$/,
-	loader: 'babel-loader',
+	loaders: 'babel-loader',
 	include: [
 		config.sourceDir
 	],
