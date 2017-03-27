@@ -23,6 +23,7 @@ BODY {
 	background-color: $bg-color;
 
 	// DEBUG
+
 	background-size: 40px 40px;
   background-image:
 		linear-gradient(to right, rgba(lightgrey, 0.05) 1px, transparent 1px),
@@ -31,7 +32,11 @@ BODY {
 
 H1, H2, H3, H4, H5, H6, H7 {
 	font-family: $headers-font-family;
+	&.regular {
+		font-family: $base-font;
+	}
 }
+
 
 
 $base-font-size: 1.5rem;
