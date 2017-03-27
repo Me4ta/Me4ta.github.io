@@ -1,0 +1,101 @@
+@import "~style/variables.scss";
+@import "~style/lib/mixins.scss";
+
+*, :before, :after {
+	box-sizing: border-box;
+}
+
+HTML {
+	font-size: 62.5%;
+}
+
+HTML, BODY {
+	margin: 0;
+	padding: 0;
+	@include wh100;
+}
+
+$base-font-size: 1.5rem;
+
+BODY {
+	font: $base-font-size/1.42857143 $base-font;
+	color: $base-font-color;
+	background-color: $bg-color;
+}
+
+H1, H2, H3, H4, H5, H6, H7 {
+	font-family: $headers-font-family;
+}
+
+
+$base-font-size: 1.5rem;
+$golden-ratio: 1.618;
+
+H4 {
+	font-size: $base-font-size * $golden-ratio;
+}
+
+H3 {
+	font-size: $base-font-size * $golden-ratio * 2;
+}
+
+H2 {
+	font-size: $base-font-size * $golden-ratio * 3;
+}
+
+H1 {
+	font-size: $base-font-size * $golden-ratio * 4;
+}
+
+.wf-loading {
+  h1,h2,h3,h4,h5,p,a {
+    opacity: 0.1;
+  }
+}
+
+.wf-active {
+  h1,h2,h3,h4,h5,p,a {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+}
+
+
+#react-root {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	@include wh100();
+}
+
+.main {
+	@include wh100();
+	flex: auto 1 1;
+	display: flex;
+	flex-direction: column;
+
+	.header {
+		flex: 0 0 auto;
+	}
+
+	.content {
+		flex: 1 0 auto;
+		display: flex;
+		overflow-x: hidden;
+		position: relative;
+		padding: 2rem;
+		@include wh100();
+
+		.workplace {
+			flex: 1 0 50%;
+		}
+	}
+
+	.footer {
+		flex: 0 0 auto;
+	}
+}
+
+.wh-100 {
+	@include wh100();
+}

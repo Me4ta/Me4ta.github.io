@@ -1,0 +1,36 @@
+@import "~style/variables.scss";
+@import "~style/lib/mixins.scss";
+
+.radio-button {
+	display: inline-block;
+	width: 5rem;
+	height: 2.5rem;
+	border-radius: 1.25rem;
+	background-color: #999;
+	cursor: pointer;
+	transition: background-color $transitionSpeed;
+	position: relative;
+	//vertical-align: middle;
+
+	&:before {
+		content: '';
+		position: absolute;
+		@include lt(0.1rem, 0.1rem);
+		@include wh(2.3rem, 2.3rem);
+		background: white;
+		border-radius: 100%;
+		transition: left $transitionSpeed;
+	}
+
+	&._active {
+		background-color: $brightColor;
+
+		&:before {
+			left: calc(100% - 2.4rem);
+		}
+	}
+
+	INPUT[type="checkbox"] {
+		display: none;
+	}
+}

@@ -1,0 +1,14 @@
+@mixin wh($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin wh100() {
+	width: 100%;
+	height: 100%;
+}
+
+@mixin lt($left, $top) {
+	left: $left;
+	top: $top;
+}

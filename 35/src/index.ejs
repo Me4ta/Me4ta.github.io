@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script async src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+</head>
+<body>
+<div id="react-root"></div>
+	<% if (htmlWebpackPlugin.options.env == 'development') { %>
+		<script src="/node_modules/_dll/styles.development.js"></script>
+		<script src="/node_modules/_dll/vendors.development.js"></script>
+	<% } else { %>
+		<script src="/vendors.js"></script>
+	<% } %>
+	<script>
+	  WebFont.load({
+	    google: {
+	      families: ['PT Sans', 'PT Serif']
+	    }
+	  });
+	</script>
+</body>
+</html>
