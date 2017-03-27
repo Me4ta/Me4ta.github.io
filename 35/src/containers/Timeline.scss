@@ -2,12 +2,21 @@
 @import "~style/lib/mixins.scss";
 
 $dark-gray: #3E3E3E;
+$time-line-width: 128rem;
+$helen-main: #E283C5;
+$anton-main: #3784F1;
+
 
 .TimeLine {
-	margin-top: 4rem;
-	width: 100%;
+	margin-top: 2.8rem; // hardcoded so years land in the middle of debug baseline grid, can be tweaked later
+	width: $time-line-width;
 	height: 100%;
 	@include flex-center-all();
+}
+
+// DEBUG
+.TimeLine {
+	outline: 1px solid rgba(skyblue, 0.2);
 }
 
 .Year {
@@ -21,11 +30,11 @@ $dark-gray: #3E3E3E;
 	border-radius: 4px;
 	font-size: 1.5rem;
 	line-height: 1.5;
+}
 
-	&.active {
-		border-color: white;
-		color: white;
-	}
+.Year.active {
+	border-color: white;
+	color: white;
 }
 
 .VerticalLine {
@@ -40,10 +49,51 @@ $dark-gray: #3E3E3E;
 
 .MainLine {
 	@include flex-center-all();
+	width: $time-line-width - 24rem;
+}
 
-	&__years {
-		// position: relative;
-		// top: 0;
-		// left: 0;
-	}
+.MainLine__years {
+	// position: relative;
+	// top: 0;
+	// left: 0;
+}
+
+.YearContainer {
+	@include flex-center-horiz();
+	flex-direction: row;
+
+
+	width: 100%;
+	// display: flex;
+	// flex-direction: row;
+	// justify-content: space-between;
+}
+
+.YearContainer__item {
+	flex-basis: 100%
+}
+
+.YearContainer__item.year {
+	@include flex-center-all();
+	flex-basis: 6rem;
+}
+
+
+.HistoryItem {
+	// float: left;
+}
+
+.HistoryItem.HistoryItemHelen {
+	color: $helen-main;
+	border-top: 2px solid $helen-main;
+}
+
+.HistoryItem.HistoryItemAnton {
+	color: $anton-main;
+	border-top: 2px solid $anton-main;
+	text-align: right;
+}
+
+.HistoryItem.order-1 {
+
 }

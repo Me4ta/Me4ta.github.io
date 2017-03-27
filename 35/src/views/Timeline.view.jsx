@@ -6,7 +6,6 @@ export default class TimelineView extends React.Component {
 	render() {
 		return (
 			<PageLayout>
-				Timeline
 				<Timeline />
 			</PageLayout>
 		)

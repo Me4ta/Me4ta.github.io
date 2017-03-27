@@ -16,6 +16,12 @@
 @mixin flex-center-all() {
 	display: flex;
 	align-items: center;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
+}
+
+@mixin flex-center-horiz() {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
