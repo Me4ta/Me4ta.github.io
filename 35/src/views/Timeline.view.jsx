@@ -1,13 +1,13 @@
 import React from 'react'
 import PageLayout from 'components/page-layout/PageLayout'
-import Workplace from 'containers/Workplace'
+import Timeline from 'containers/Timeline'
 
-export default class IndexContainer extends React.Component {
+export default class TimelineView extends React.Component {
 	render() {
 		return (
 			<PageLayout>
-				Index
-				<Workplace />
+				Timeline
+				<Timeline />
 			</PageLayout>
 		)
 	}

@@ -12,3 +12,10 @@
 	left: $left;
 	top: $top;
 }
+
+@mixin flex-center-all() {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+}

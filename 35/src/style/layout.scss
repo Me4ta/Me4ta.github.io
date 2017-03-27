@@ -15,7 +15,7 @@ HTML, BODY {
 	@include wh100;
 }
 
-$base-font-size: 1.5rem;
+$base-font-size: 2rem;
 
 BODY {
 	font: $base-font-size/1.42857143 $base-font;
@@ -65,11 +65,11 @@ H1 {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
-	@include wh100();
+	// @include wh100();
 }
 
 .main {
-	@include wh100();
+	// @include wh100();
 	flex: auto 1 1;
 	display: flex;
 	flex-direction: column;

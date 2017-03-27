@@ -1,12 +1,12 @@
 import React from 'react'
 import Header from 'components/Header/Header'
-import Footer from 'components/Footer/Footer'
+// import Footer from 'components/Footer/Footer'
 
 export class PageLayout extends React.PureComponent {
 	render() {
 		return (
 			<div className='main'>
-				{/* <Header /> */}
+				<Header />
 				<div className='content'>
 					{this.props.children}
 				</div>
