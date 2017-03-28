@@ -19,6 +19,19 @@ $year-width: 6rem;
 	width: $time-line-width;
 	height: 100%;
 	@include flex-center-all();
+
+	.helen-pink {
+		color: $helen-main;
+	}
+
+	.anton-blue {
+		color: $anton-main;
+	}
+
+	.headline-section {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
 }
 
 // DEBUG
@@ -151,12 +164,15 @@ $year-width: 6rem;
 .HistoryItem.HistoryItemAnton {
 	color: $anton-main;
 	border-top: $top-border-width $top-border-style $anton-main;
+	display: flex;
 	align-items: flex-end;
+	flex-direction: column;
 	text-align: right;
 
 	.HistoryItem__title {
 		text-align: right;
-		max-width: 100%;
+		// max-width: 100%;
+		max-width: 4 * 6rem;
 	}
 
 	.HistoryItem__uper-info {
@@ -180,7 +196,7 @@ $year-width: 6rem;
 .HistoryItem.long {
 }
 
-$padding-from-vertical-line: 1rem;
+$padding-from-vertical-line: 4rem;
 
 .HistoryItem.short.condensed {
 	width: 4rem * 6;
@@ -197,7 +213,6 @@ $padding-from-vertical-line: 1rem;
 
 
 .HistoryItem.short.wide {
-
 	width: 4rem * 10;
 	left: 4rem * 3 - 0.3rem;
 	padding-right: $padding-from-vertical-line;
@@ -211,4 +226,6 @@ $padding-from-vertical-line: 1rem;
 
 .HistoryItem.HistoryItemAnton.wide {
 	left: 0.3rem;
+	padding-left: $padding-from-vertical-line;
+	padding-right: 0;
 }

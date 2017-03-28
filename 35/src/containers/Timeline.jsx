@@ -28,10 +28,19 @@ const HistoryItem = ({ item, order = 0, totalItemsInSet = 0, upperInfo, classNam
 	// total:order
 	const longItemStyle = {
 		top: '11px',
-		paddingRight: left ? '4rem' : 0
+		paddingRight: left ? '4rem' : 0,
 	}
 
 	const itemPropsMap = {
+		7: {
+			0: {classNames: 'long', style: longItemStyle},
+			1: {classNames: 'short condensed', style: {top: '7rem'}},
+			2: {classNames: 'long', style: {...longItemStyle, top: '24rem'}},
+			3: {classNames: 'short condensed', style: {top: '30rem'}},
+			4: {classNames: 'long', style: {...longItemStyle, top: '46rem'}},
+			5: {classNames: 'short condensed', style: {top: '52rem'}},
+			6: {classNames: 'short wide', style: {top: '66rem'}},
+		},
 		6: {
 			0: {classNames: 'long', style: longItemStyle},
 			1: {classNames: 'short condensed', style: {top: '7rem'}},
@@ -111,6 +120,7 @@ const YearContainer = ({year, helenItems, antonItems}) => {
 	const hasItems = (helenItemsCount > 0) || (antonItemsCount > 0)
 
 	const itemCountToDistanceMap = {
+		7: 21 * gridHeigh,
 		6: 18 * gridHeigh,
 		5: 15 * gridHeigh,
 		4: 12 * gridHeigh,
@@ -155,7 +165,7 @@ const VerticalLine = () => <div className="VerticalLine" />
 
 const MainLine = ({helenTimeline, antonTimeline}) => {
 	// TODO bc: add another pass-through for anton timeline to grab years that are not in helens timeline
-	const years = range(1982, today.year())
+	const years = range(1981, today.year() + 2)
 	console.info(years)
 
 	const yearContainerComps = years.map(year => {
@@ -168,21 +178,10 @@ const MainLine = ({helenTimeline, antonTimeline}) => {
 	return (
 		<div className="MainLine">
 			<VerticalLine />
-			{/* <YearContainer year={1982}
-				helenItems={[{title: 'Родилась'}, {title: 'Уписялась'}, {title: 'Поломала Стул'}]}
-				antonItems={[{title: 'Родился'}, {title: 'Родился'}, {title: 'Родился'}]} />
-			<YearContainer year={1986} helenItems={[{title: 'Пошла в садик'}]} />
-			<YearContainer year={1987} antonItems={[{title: 'New Item'}]} />
-			<YearContainer year={1988} />
-			<YearContainer year={1989} />
-			<YearContainer year={1990} /> */}
 			{yearContainerComps}
-
-			{/* {helenTimeline.map(x => <YearContainer year={moment(new Date(x.date))} helenItems=[x]/>)} */}
 		</div>
 	)
 }
-
 
 // ---- Timeline Cointainer Component
 
@@ -204,6 +203,10 @@ export default class TimeLine extends React.Component {
 	render() {
 		return (
 			<div className="TimeLine">
+				<section className="headline-section">
+					<h1><span className="helen-pink">Helen</span> & <span className="anton-blue">Anton</span></h1>
+					<h1>Timeline</h1>
+				</section>
 				<MainLine helenTimeline={helenTimeline} antonTimeline={antonTimeline} />
 			</div>
 		)
