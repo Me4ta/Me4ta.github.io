@@ -10,6 +10,7 @@
     "dev": "NODE_ENV=development babel-node ./server/dev.js",
     "devmon": "nodemon --exec better-npm-run dev",
     "build": "NODE_ENV=production npm run webpack -- --optimize-minimize --color --progress --config=webpack/webpack.config.prod.js",
+    "build:all": "npm run dll:prod && npm run build",
     "dll:dev": "NODE_ENV=development npm run webpack -- --color --progress --config=webpack/webpack.config.dll.js",
     "dll:prod": "NODE_ENV=production npm run webpack -- --color --progress --config=webpack/webpack.config.dll.js",
     "dll": "npm run dll:dev && npm run dll:prod",

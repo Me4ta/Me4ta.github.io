@@ -6,6 +6,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin'
 import htmlPlugin from './util/html-plugin'
 import uglifyPlugin from './util/uglify-plugin'
 import baseWebpackConfig from './webpack.config.base'
+import webpack from 'webpack'
 
 const productionConfig = merge(
 	baseWebpackConfig,
@@ -19,6 +20,11 @@ const productionConfig = merge(
 				to: path.join(config.buildDir, 'vendors.js')
 			}]),
 			new ExtractTextPlugin('styles.css'),
+			new webpack.DefinePlugin({
+				'process.env': {
+					NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+				},
+			}),
 			htmlPlugin,
 			uglifyPlugin
 		]

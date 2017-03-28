@@ -1,9 +1,11 @@
 import React from 'react'
 import './Timeline.scss'
 import classnames from 'classnames'
-import helenTimelineRaw from './helen-timeline'
+import helenTimelineRaw from './data/helen-timeline'
+import antonTimelineRaw from './data/anton-timeline'
 import moment from 'moment'
 import { groupBy } from 'lodash'
+import { humanizeYears } from './utils/humanize'
 
 
 const Year = ({ year, active }) =>
@@ -14,8 +16,8 @@ const HistoryItem = ({ item, order = 0, totalItemsInSet = 0, upperInfo, classNam
 	const itemPropsMap = {
 		3: {
 			0: {classNames: 'long', style: {top: '11px'}},
-			1: {classNames: 'short condensed', style: {top: '5rem'}},
-			2: {classNames: 'short wide', style: {top: '21rem'}}
+			1: {classNames: 'short condensed', style: {top: '6rem'}},
+			2: {classNames: 'short wide', style: {top: '24rem'}}
 		},
 		2: {
 			0: {classNames: 'long', style: {top: '11px'}},
@@ -26,25 +28,9 @@ const HistoryItem = ({ item, order = 0, totalItemsInSet = 0, upperInfo, classNam
 		}
 	}
 
-	console.info(totalItemsInSet)
-	console.info(order)
 	const itemClass = itemPropsMap[totalItemsInSet][order].classNames
-	const classNames = classnames('HistoryItem', className, itemClass)
-
+	const classNames = classnames('HistoryItem', className, itemClass, `order-${order}`)
 	const itemStyle = itemPropsMap[totalItemsInSet][order].style
-
-	/* 3 items
-		- 0 is long (width 6)
-		- 1 is short-codensed (width 6)
-		- 2 is short-wide (8)
-	*/
-
-	/* 2 items
-		- 0 is long (width 6)
-		- 1 is short-wide (width 8)
-	*/
-
-	/* 1 item – 0 is short-wide (width  8) */
 
 	return (
 		<div className={classNames} style={itemStyle}>
@@ -69,12 +55,12 @@ const getAntonsAge = date => {
 const HelenHistoryItem = ({ item, order, totalItemsInSet }) =>
 	<HistoryItem className="HistoryItemHelen" item={item} order={order}
 		totalItemsInSet={totalItemsInSet}
-		upperInfo={`${getHelensAge(item.date)} лет`} />
+		upperInfo={humanizeYears(getHelensAge(item.date))} />
 
 const AntonHistoryItem = ({ item, order, totalItemsInSet }) =>
 	<HistoryItem className="HistoryItemAnton" item={item} order={order}
-		upperInfo={`${getAntonsAge(item.date)} лет`}
-		totalItemsInSet={totalItemsInSet} />
+		totalItemsInSet={totalItemsInSet}
+		upperInfo={humanizeYears(getAntonsAge(item.date))} />
 
 const YearContainer = ({year, helenItems, antonItems}) => {
 	const helenItemsCount = helenItems ? helenItems.length : 0
@@ -85,7 +71,7 @@ const YearContainer = ({year, helenItems, antonItems}) => {
 	const gridHeigh = 4 // rem
 
 	const itemCountToDistanceMap = {
-		3: 8 * gridHeigh,
+		3: 9 * gridHeigh,
 		2: 6 * gridHeigh,
 		1: 4 * gridHeigh,
 		0: 2 * gridHeigh
@@ -111,9 +97,13 @@ const YearContainer = ({year, helenItems, antonItems}) => {
 
 const VerticalLine = () => <div className="VerticalLine" />
 
-const MainLine = ({helenTimeline}) => {
+const MainLine = ({helenTimeline, antonTimeline}) => {
+	// TODO bc: add another pass-through for anton timeline to grab years that are not in helens timeline
 	const yearContainerComps = Object.keys(helenTimeline).map(year => {
-		return <YearContainer key={year} year={year} helenItems={helenTimeline[year]} />
+		return <YearContainer key={year} year={year}
+			helenItems={helenTimeline[year]}
+			antonItems={antonTimeline[year]}
+			/>
 	})
 
 	return (
@@ -144,17 +134,18 @@ let toObjectsWithDates = timeline => timeline.map(x => ({
 		: moment(x.date, 'DD MMMM YYYY')
 }))
 
-console.info(toObjectsWithDates(helenTimelineRaw).map(x => x.date.toString() + x.title))
+const getGroupedTimeline = timeline => groupBy(toObjectsWithDates(timeline), x => x.date.year())
 
-const helenTimeline = groupBy(toObjectsWithDates(helenTimelineRaw), x => x.date.year())
-console.info(helenTimeline)
+const helenTimeline = getGroupedTimeline(helenTimelineRaw)
+const antonTimeline = getGroupedTimeline(antonTimelineRaw)
+
 
 // receives props from clojure
 export default class TimeLine extends React.Component {
 	render() {
 		return (
 			<div className="TimeLine">
-				<MainLine helenTimeline={helenTimeline} />
+				<MainLine helenTimeline={helenTimeline} antonTimeline={antonTimeline} />
 			</div>
 		)
 	}

@@ -7,7 +7,8 @@ $main-line-width: $time-line-width - 24rem;
 $helen-main: #E283C5;
 $anton-main: #3784F1;
 $history-item-height: 12rem;
-
+$top-border-width: 1px;
+$top-border-style: dashed;
 
 .TimeLine {
 	position: relative;
@@ -19,9 +20,9 @@ $history-item-height: 12rem;
 }
 
 // DEBUG
-.TimeLine {
-	outline: 1px solid rgba(skyblue, 0.2);
-}
+// .TimeLine {
+// 	outline: 1px solid rgba(skyblue, 0.2);
+// }
 
 .Year {
 	@include flex-center-all();
@@ -54,7 +55,7 @@ $history-item-height: 12rem;
 
 .MainLine {
 	position: relative;
-	@include flex-center-all();
+	@include flex-center-horiz();
 	width: $main-line-width;
 }
 .YearContainer {
@@ -99,6 +100,7 @@ $history-item-height: 12rem;
 		position: absolute;
 		top: -1.7rem;
 		font-size: 1.1rem;
+		left: 0;
 	}
 
 	.HistoryItem__title {
@@ -114,7 +116,7 @@ $history-item-height: 12rem;
 
 .HistoryItem.HistoryItemHelen {
 	color: $helen-main;
-	border-top: 2px solid $helen-main;
+	border-top: $top-border-width $top-border-style $helen-main;
 	left: 0;
 
 	.HistoryItem__uper-info {
@@ -133,18 +135,15 @@ $history-item-height: 12rem;
 
 .HistoryItem.HistoryItemAnton {
 	color: $anton-main;
-	border-top: 2px solid $anton-main;
+	border-top: $top-border-width $top-border-style $anton-main;
 	align-items: flex-end;
 	text-align: right;
 
 	.HistoryItem__uper-info {
-		left: 2rem;
+		// left: 2rem;
 		color: $anton-main;
+		right: 0;
 	}
-}
-
-.HistoryItem.order-0 {
-	top: 11px;
 }
 
 .HistoryItem.HistoryItemHelen.order-0 {
@@ -159,53 +158,33 @@ $history-item-height: 12rem;
 	}
 }
 
-
-.HistoryItem.order-1 {
-	top: 5rem;
-	width: 4rem * 6;
-	left: 4rem * 7 - 0.3rem;
-	padding-right: 1rem;
-}
-
-.HistoryItem.HistoryItemAnton.order-1 {
-	top: 5rem;
-	width: 4rem * 6;
-	left: 0.3rem;
-}
-
-.HistoryItem.order-2 {
-	top: 19rem;
-	width: 4rem * 6;
-	left: 4rem * 7 - 0.4rem;
-	padding-right: 1rem;
-}
-
-.HistoryItem.HistoryItemAnton.order-2 {
-	top: 19rem;
-	width: 4rem * 6;
-	left: 0.3rem;
-}
-
-
-// ----
-
 .HistoryItem.long {
-	top: 11px;
 }
+
+$padding-from-vertical-line: 1rem;
 
 .HistoryItem.short.condensed {
-	top: 5rem;
 	width: 4rem * 6;
 	left: 4rem * 7 - 0.3rem;
-	padding-right: 1rem;
+	padding-right: $padding-from-vertical-line;
 }
 
+.HistoryItem.HistoryItemAnton.short.condensed {
+	width: 4rem * 6;
+	left: 0.3rem;
+	padding-left: $padding-from-vertical-line;
+}
+
+
 .HistoryItem.short.wide {
-	top: 19rem;
 	width: 4rem * 10;
 	left: 4rem * 3 - 0.3rem;
-	padding-right: 1rem;
+	padding-right: $padding-from-vertical-line;
 	.HistoryItem__description {
 		max-width: 4 * 10rem;
 	}
+}
+
+.HistoryItem.HistoryItemAnton.wide {
+	left: 0.3rem;
 }
