@@ -9,14 +9,50 @@ import { humanizeYears } from './utils/humanize'
 
 const today = moment()
 
+const getItemHeigthOffset = itemHeight => {
+	if (itemHeight <= 64) {
+		return 0
+	} else if (itemHeight > 64 && itemHeight <= 130) {
+		return 1
+	} else if (itemHeight >= 130) {
+		return 2
+	}
+}
+
+const gridHeigh = 4 // rem
+
 const Year = ({ year, active }) =>
 	<div className={classnames('Year', { 'active': active })}>{year}</div>
 
-const HistoryItem = ({ item, order = 0, totalItemsInSet = 0, upperInfo, className }) => {
+const HistoryItem = ({ item, order = 0, totalItemsInSet = 0, upperInfo, className, left = false, right = false }) => {
 	// total:order
-	const longItemStyle = {top: '11px', paddingRight: '3rem'}
+	const longItemStyle = {
+		top: '11px',
+		paddingRight: left ? '4rem' : 0
+	}
 
 	const itemPropsMap = {
+		6: {
+			0: {classNames: 'long', style: longItemStyle},
+			1: {classNames: 'short condensed', style: {top: '7rem'}},
+			2: {classNames: 'long', style: {...longItemStyle, top: '24rem'}},
+			3: {classNames: 'short condensed', style: {top: '30rem'}},
+			4: {classNames: 'long', style: {...longItemStyle, top: '46rem'}},
+			5: {classNames: 'short condensed', style: {top: '52rem'}}
+		},
+		5: {
+			0: {classNames: 'long', style: longItemStyle},
+			1: {classNames: 'short condensed', style: {top: '7rem'}},
+			2: {classNames: 'long', style: {...longItemStyle, top: '24rem'}},
+			3: {classNames: 'short condensed', style: {top: '30rem'}},
+			4: {classNames: 'short wide', style: {top: '46rem'}}
+		},
+		4: {
+			0: {classNames: 'long', style: longItemStyle},
+			1: {classNames: 'short condensed', style: {top: '7rem'}},
+			2: {classNames: 'long', style: {...longItemStyle, top: '24rem'}},
+			3: {classNames: 'short condensed', style: {top: '30rem'}}
+		},
 		3: {
 			0: {classNames: 'long', style: longItemStyle},
 			1: {classNames: 'short condensed', style: {top: '7rem'}},
@@ -57,11 +93,13 @@ const getAntonsAge = date => {
 
 const HelenHistoryItem = ({ item, order, totalItemsInSet }) =>
 	<HistoryItem className="HistoryItemHelen" item={item} order={order}
+		left
 		totalItemsInSet={totalItemsInSet}
 		upperInfo={humanizeYears(getHelensAge(item.date))} />
 
 const AntonHistoryItem = ({ item, order, totalItemsInSet }) =>
 	<HistoryItem className="HistoryItemAnton" item={item} order={order}
+		right
 		totalItemsInSet={totalItemsInSet}
 		upperInfo={humanizeYears(getAntonsAge(item.date))} />
 
@@ -71,9 +109,11 @@ const YearContainer = ({year, helenItems, antonItems}) => {
 	const maxItemsCount = Math.max(helenItemsCount, antonItemsCount)
 
 	const hasItems = (helenItemsCount > 0) || (antonItemsCount > 0)
-	const gridHeigh = 4 // rem
 
 	const itemCountToDistanceMap = {
+		6: 18 * gridHeigh,
+		5: 15 * gridHeigh,
+		4: 12 * gridHeigh,
 		3: 9 * gridHeigh,
 		2: 6 * gridHeigh,
 		1: 4 * gridHeigh,
@@ -82,16 +122,17 @@ const YearContainer = ({year, helenItems, antonItems}) => {
 
 	const getLongestItems = (helenItems, antonItems) => (helenItems ? helenItems.length : 0) > (antonItems ? antonItems.length : 0)
 		? helenItems : antonItems
-	console.info(last(getLongestItems(helenItems, antonItems)))
+
+	const getLastItemsOffset = (helenItems, antonItems) => {
+		const lastItem = last(getLongestItems(helenItems, antonItems))
+		return getItemHeigthOffset(lastItem.description.length)
+	}
 
 	const additionalOffsetBasedOnContent = hasItems
-		? last(getLongestItems(helenItems, antonItems)).description.length >= 160
-			? 1 * gridHeigh
-			: 0
+		? getLastItemsOffset(helenItems, antonItems) * gridHeigh
 		: 0
 
 	const distanceBetweenYears = itemCountToDistanceMap[maxItemsCount] + additionalOffsetBasedOnContent
-
 
 	const style = { minHeight: `${distanceBetweenYears}rem` }
 

@@ -115,6 +115,7 @@ $year-width: 6rem;
 
 	.HistoryItem__title {
 		// font-family: $headers-font-family;
+		max-width: 4 * 6rem;
 		font-weight: 700;
 		// font-size: 2.2rem;
 		position: relative;
@@ -135,7 +136,7 @@ $year-width: 6rem;
 
 	.HistoryItem__uper-info {
 		right: 2rem;
-		color: $helen-main;
+		color: transparentize($helen-main, 0.4);
 	}
 }
 
@@ -153,9 +154,13 @@ $year-width: 6rem;
 	align-items: flex-end;
 	text-align: right;
 
+	.HistoryItem__title {
+		text-align: right;
+		max-width: 100%;
+	}
+
 	.HistoryItem__uper-info {
-		// left: 2rem;
-		color: $anton-main;
+		color: transparentize($anton-main, 0.4);
 		right: 0;
 	}
 }
@@ -187,13 +192,18 @@ $padding-from-vertical-line: 1rem;
 	width: 4rem * 6;
 	left: 0.4rem;
 	padding-left: $padding-from-vertical-line;
+	padding-right: 0;
 }
 
 
 .HistoryItem.short.wide {
+
 	width: 4rem * 10;
 	left: 4rem * 3 - 0.3rem;
 	padding-right: $padding-from-vertical-line;
+	.HistoryItem__title {
+		max-width: 4 * 10rem;
+	}
 	.HistoryItem__description {
 		max-width: 4 * 10rem;
 	}
