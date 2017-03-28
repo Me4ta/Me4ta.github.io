@@ -10,6 +10,8 @@ $history-item-height: 12rem;
 $top-border-width: 1px;
 $top-border-style: dashed;
 
+$year-width: 6rem;
+
 .TimeLine {
 	position: relative;
 
@@ -20,16 +22,16 @@ $top-border-style: dashed;
 }
 
 // DEBUG
-// .TimeLine {
-// 	outline: 1px solid rgba(skyblue, 0.2);
-// }
+.TimeLine {
+	// outline: 1px solid rgba(skyblue, 0.2);
+}
 
 .Year {
 	@include flex-center-all();
 
 	color: $dark-gray;
 	background-color: $bg-color;
-	width: 6rem;
+	width: $year-width;
 	height: 2.5rem;
 	border: 2px solid $dark-gray;
 	border-radius: 4px;
@@ -47,16 +49,21 @@ $top-border-style: dashed;
 	top: 2rem;
 	position: absolute;
 	width: 0.5rem;
-	height: 200rem;
+	height: 100%;
 	background-color: $dark-gray;
 	border-radius: 4px;
 	z-index: -1;
+	left: 50%;
+	margin-left: -0.25rem;
+
+	// left: $time-line-width / 2;
 }
 
 .MainLine {
 	position: relative;
-	@include flex-center-horiz();
+	// @include flex-center-horiz();
 	width: $main-line-width;
+	// min-width: $main-line-width;
 }
 .YearContainer {
 	display: flex;
@@ -83,8 +90,11 @@ $top-border-style: dashed;
 }
 
 .YearContainer__item.year {
-	@include flex-center-horiz();
+	// @include flex-center-horiz();
 	position: absolute;
+	z-index: 200;
+	left: 50%;
+	margin-left: -$year-width / 2;
 }
 
 
@@ -104,7 +114,11 @@ $top-border-style: dashed;
 	}
 
 	.HistoryItem__title {
+		// font-family: $headers-font-family;
 		font-weight: 700;
+		// font-size: 2.2rem;
+		position: relative;
+		top: 2px;
 	}
 
 	.HistoryItem__description {

@@ -4,9 +4,10 @@ import classnames from 'classnames'
 import helenTimelineRaw from './data/helen-timeline'
 import antonTimelineRaw from './data/anton-timeline'
 import moment from 'moment'
-import { groupBy } from 'lodash'
+import { groupBy, range } from 'lodash'
 import { humanizeYears } from './utils/humanize'
 
+const today = moment()
 
 const Year = ({ year, active }) =>
 	<div className={classnames('Year', { 'active': active })}>{year}</div>
@@ -99,7 +100,10 @@ const VerticalLine = () => <div className="VerticalLine" />
 
 const MainLine = ({helenTimeline, antonTimeline}) => {
 	// TODO bc: add another pass-through for anton timeline to grab years that are not in helens timeline
-	const yearContainerComps = Object.keys(helenTimeline).map(year => {
+	const years = range(1982, today.year())
+	console.info(years)
+
+	const yearContainerComps = years.map(year => {
 		return <YearContainer key={year} year={year}
 			helenItems={helenTimeline[year]}
 			antonItems={antonTimeline[year]}
