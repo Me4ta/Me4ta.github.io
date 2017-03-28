@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 export default class Header extends React.PureComponent {
 	render() {
 		return (
-			<nav className='header navbar navbar-toggleable-md navbar-inverse'>
+			<nav className='header navbar navbar-toggleable-sm navbar-inverse'>
 
 				<div className="collapse navbar-collapse">
 					<ul className="navbar-nav mr-auto mt-2 mt-lg-0">

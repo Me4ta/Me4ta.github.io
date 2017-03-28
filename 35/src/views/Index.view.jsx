@@ -6,8 +6,11 @@ export default class IndexContainer extends React.Component {
 	render() {
 		return (
 			<PageLayout>
-				Index
-				<Workplace />
+				{/* <Workplace /> */}
+				<h1 className="" style={{
+					fontFamily: 'Cinzel',
+					fontSize: '45vw'
+				}}>35</h1>
 			</PageLayout>
 		)
 	}
