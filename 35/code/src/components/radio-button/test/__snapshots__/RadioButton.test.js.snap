@@ -1,0 +1,21 @@
+exports[`test renders correctly 1`] = `
+<label
+  className="radio-button additional-class _active"
+  onClick={[Function]}>
+  <input
+    checked={true}
+    name="test"
+    type="checkbox" />
+</label>
+`;
+
+exports[`test renders correctly 2`] = `
+<label
+  className="radio-button additional-class"
+  onClick={[Function]}>
+  <input
+    checked={false}
+    name="test"
+    type="checkbox" />
+</label>
+`;

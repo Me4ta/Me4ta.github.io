@@ -1,0 +1,231 @@
+@import "~style/variables.scss";
+@import "~style/lib/mixins.scss";
+
+$dark-gray: #3E3E3E;
+$time-line-width: 128rem;
+$main-line-width: $time-line-width - 24rem;
+$helen-main: #E283C5;
+$anton-main: #3784F1;
+$history-item-height: 12rem;
+$top-border-width: 1px;
+$top-border-style: dashed;
+
+$year-width: 6rem;
+
+.TimeLine {
+	position: relative;
+
+	margin-top: 2.8rem; // hardcoded so years land in the middle of debug baseline grid, can be tweaked later
+	width: $time-line-width;
+	height: 100%;
+	@include flex-center-all();
+
+	.helen-pink {
+		color: $helen-main;
+	}
+
+	.anton-blue {
+		color: $anton-main;
+	}
+
+	.headline-section {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+}
+
+// DEBUG
+.TimeLine {
+	// outline: 1px solid rgba(skyblue, 0.2);
+}
+
+.Year {
+	@include flex-center-all();
+
+	color: $dark-gray;
+	background-color: $bg-color;
+	width: $year-width;
+	height: 2.5rem;
+	border: 2px solid $dark-gray;
+	border-radius: 4px;
+	font-size: 1.5rem;
+	line-height: 1.5;
+	z-index: 100;
+}
+
+.Year.active {
+	border-color: white;
+	color: white;
+}
+
+.VerticalLine {
+	top: 2rem;
+	position: absolute;
+	width: 0.5rem;
+	height: 100%;
+	background-color: $dark-gray;
+	border-radius: 4px;
+	z-index: -1;
+	left: 50%;
+	margin-left: -0.25rem;
+
+	// left: $time-line-width / 2;
+}
+
+.MainLine {
+	position: relative;
+	// @include flex-center-horiz();
+	width: $main-line-width;
+	// min-width: $main-line-width;
+}
+.YearContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 100%;
+	// display: flex;
+	// flex-direction: row;
+	// justify-content: space-between;
+}
+
+.YearContainer__item {
+	position: relative;
+}
+
+.YearContainer__item.left {
+	left: 0;
+	width: $main-line-width / 2 - 0.2rem;
+}
+
+.YearContainer__item.right {
+	right: 0;
+	width: $main-line-width / 2 - 0.2rem;
+}
+
+.YearContainer__item.year {
+	// @include flex-center-horiz();
+	position: absolute;
+	z-index: 200;
+	left: 50%;
+	margin-left: -$year-width / 2;
+}
+
+
+.HistoryItem {
+	// float: left;
+	position: absolute;;
+	top: 11px;
+	width: 100%;
+	min-height: $history-item-height;
+	max-height: $history-item-height;
+
+	.HistoryItem__uper-info {
+		position: absolute;
+		top: -1.7rem;
+		font-size: 1.1rem;
+		left: 0;
+	}
+
+	.HistoryItem__title {
+		// font-family: $headers-font-family;
+		max-width: 4 * 6rem;
+		font-weight: 700;
+		// font-size: 2.2rem;
+		position: relative;
+		top: 2px;
+	}
+
+	.HistoryItem__description {
+		max-width: 4 * 6rem;
+		display: inline-block;
+	}
+}
+
+
+.HistoryItem.HistoryItemHelen {
+	color: $helen-main;
+	border-top: $top-border-width $top-border-style $helen-main;
+	left: 0;
+
+	.HistoryItem__uper-info {
+		right: 2rem;
+		color: transparentize($helen-main, 0.4);
+	}
+}
+
+.HistoryItemHelen__uper-info {
+	position: absolute;
+	right: 4rem;
+	top: -0.4rem;
+	color: $helen-main;
+	font-size: 1.1rem;
+}
+
+.HistoryItem.HistoryItemAnton {
+	color: $anton-main;
+	border-top: $top-border-width $top-border-style $anton-main;
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	text-align: right;
+
+	.HistoryItem__title {
+		text-align: right;
+		// max-width: 100%;
+		max-width: 4 * 6rem;
+	}
+
+	.HistoryItem__uper-info {
+		color: transparentize($anton-main, 0.4);
+		right: 0;
+	}
+}
+
+.HistoryItem.HistoryItemHelen.order-0 {
+	.HistoryItem__uper-info {
+		right: 4rem;
+	}
+}
+
+.HistoryItem.HistoryItemAnton.order-0 {
+	.HistoryItem__uper-info {
+		left: 4rem;
+	}
+}
+
+.HistoryItem.long {
+}
+
+$padding-from-vertical-line: 4rem;
+
+.HistoryItem.short.condensed {
+	width: 4rem * 6;
+	left: 4rem * 7 - 0.3rem;
+	padding-right: $padding-from-vertical-line;
+}
+
+.HistoryItem.HistoryItemAnton.short.condensed {
+	width: 4rem * 6;
+	left: 0.4rem;
+	padding-left: $padding-from-vertical-line;
+	padding-right: 0;
+}
+
+
+.HistoryItem.short.wide {
+	width: 4rem * 10;
+	left: 4rem * 3 - 0.3rem;
+	padding-right: $padding-from-vertical-line;
+	.HistoryItem__title {
+		max-width: 4 * 10rem;
+	}
+	.HistoryItem__description {
+		max-width: 4 * 10rem;
+	}
+}
+
+.HistoryItem.HistoryItemAnton.wide {
+	left: 0.3rem;
+	padding-left: $padding-from-vertical-line;
+	padding-right: 0;
+}

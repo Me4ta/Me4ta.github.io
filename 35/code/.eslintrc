@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "standard",
+    "standard-react"
+  ],
+  "plugins": [ "react" ],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "space-before-function-paren": 0,
+		"no-multiple-empty-lines": 0,
+    "indent": [0, 4],
+    "react/jsx-indent-props": [0, 4],
+    "react/jsx-indent": [0, 4],
+		"react/prop-types": 0,
+		"jsx-quotes": 0,
+    "no-tabs": 0,
+    "no-unused-vars": 1,
+		"comma-dangle": [0],
+  }
+}
