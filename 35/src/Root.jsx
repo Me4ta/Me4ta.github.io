@@ -8,6 +8,7 @@ import React from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import Index from 'views/Index.view.jsx'
 import TimelineView from 'views/Timeline.view.jsx'
+import LifeCalendarView from 'views/LifeCalendar.view.jsx'
 
 export default class RootContainer extends React.Component {
 	render() {
@@ -15,7 +16,7 @@ export default class RootContainer extends React.Component {
 			<Router>
 				<Switch>
 					<Route exact path="/" component={Index} />
-					<Route exact path="/life-calendar" component={TimelineView} />
+					<Route exact path="/life-calendar" component={LifeCalendarView} />
 					<Route exact path="/timeline" component={TimelineView} />
 				</Switch>
 			</Router>
