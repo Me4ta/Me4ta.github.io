@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import helenTimelineRaw from './data/helen-timeline'
 import antonTimelineRaw from './data/anton-timeline'
 import moment from 'moment'
-import { groupBy, range } from 'lodash'
+import { groupBy, range, last } from 'lodash'
 import { humanizeYears } from './utils/humanize'
 
 const today = moment()
@@ -14,18 +14,20 @@ const Year = ({ year, active }) =>
 
 const HistoryItem = ({ item, order = 0, totalItemsInSet = 0, upperInfo, className }) => {
 	// total:order
+	const longItemStyle = {top: '11px', paddingRight: '3rem'}
+
 	const itemPropsMap = {
 		3: {
-			0: {classNames: 'long', style: {top: '11px'}},
-			1: {classNames: 'short condensed', style: {top: '6rem'}},
+			0: {classNames: 'long', style: longItemStyle},
+			1: {classNames: 'short condensed', style: {top: '7rem'}},
 			2: {classNames: 'short wide', style: {top: '24rem'}}
 		},
 		2: {
-			0: {classNames: 'long', style: {top: '11px'}},
-			1: {classNames: 'short condensed', style: {top: '5rem'}}
+			0: {classNames: 'long', style: longItemStyle},
+			1: {classNames: 'short condensed', style: {top: '7rem'}}
 		},
 		1: {
-			0: {classNames: 'short wide', style: {top: '11px'}}
+			0: {classNames: 'short wide', style: longItemStyle}
 		}
 	}
 
@@ -37,8 +39,8 @@ const HistoryItem = ({ item, order = 0, totalItemsInSet = 0, upperInfo, classNam
 		<div className={classNames} style={itemStyle}>
 				<div className="HistoryItem__uper-info">{upperInfo}</div>
 				<h4 className="HistoryItem__title regular">{item.title}</h4>
-				<p className="HistoryItem__description">весом в 3300 гр, в лисках с разрешения родителей, тут максимальный текст, который может влезть до нижнего предела...</p>
-				{/* <p className="HistoryItem__description">и ничего</p> */}
+				{/* <p className="HistoryItem__description">весом в 3300 гр, в лисках с разрешения родителей, тут максимальный текст, который может влезть до нижнего предела...</p> */}
+				<p className="HistoryItem__description">{item.description}</p>
 		</div>
 	)
 }
@@ -78,7 +80,19 @@ const YearContainer = ({year, helenItems, antonItems}) => {
 		0: 2 * gridHeigh
 	}
 
-	const distanceBetweenYears = itemCountToDistanceMap[maxItemsCount]
+	const getLongestItems = (helenItems, antonItems) => (helenItems ? helenItems.length : 0) > (antonItems ? antonItems.length : 0)
+		? helenItems : antonItems
+	console.info(last(getLongestItems(helenItems, antonItems)))
+
+	const additionalOffsetBasedOnContent = hasItems
+		? last(getLongestItems(helenItems, antonItems)).description.length >= 160
+			? 1 * gridHeigh
+			: 0
+		: 0
+
+	const distanceBetweenYears = itemCountToDistanceMap[maxItemsCount] + additionalOffsetBasedOnContent
+
+
 	const style = { minHeight: `${distanceBetweenYears}rem` }
 
 	return (
@@ -135,7 +149,7 @@ let toObjectsWithDates = timeline => timeline.map(x => ({
 	...x,
 	date: x.date.length === 4
 		? moment(x.date, 'YYYY')
-		: moment(x.date, 'DD MMMM YYYY')
+		: moment(x.date, 'YYYY, MMMM DD')
 }))
 
 const getGroupedTimeline = timeline => groupBy(toObjectsWithDates(timeline), x => x.date.year())
